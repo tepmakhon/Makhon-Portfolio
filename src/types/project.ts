@@ -1,6 +1,8 @@
 export interface Project {
   id: number;
+
   title: string;
+
   category: string;
 
   description: string;
@@ -14,4 +16,6 @@ export interface Project {
   featured: boolean;
 
   technologies: string[];
+
+  highlight?: boolean;
 }

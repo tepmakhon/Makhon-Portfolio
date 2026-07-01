@@ -4,6 +4,7 @@ import About from "../features/about/About";
 import Skills from "../features/skills/Skills";
 import ExperienceTimeline from "../features/experience/ExperienceTimeline";
 import FeaturedProjects from "../features/projects/FeaturedProjects";
+import Education from "../features/education/Education";
 export default function Home() {
   return (
     <MainLayout>
@@ -11,6 +12,7 @@ export default function Home() {
       <About />
       <Skills />
       <ExperienceTimeline />
+      <Education />
       <FeaturedProjects />
     </MainLayout>
   );

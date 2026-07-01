@@ -2,6 +2,7 @@ import type { Project } from "../types/project";
 
 import portfolioImage from "../assets/images/projects/portfolio.png";
 import ruppImage from "../assets/images/projects/rupp.png";
+import smartClassroomImage from "../assets/images/projects/smartclassroom.png";
 
 export const projects: Project[] = [
   {
@@ -19,7 +20,7 @@ export const projects: Project[] = [
     demo: "",
 
     featured: true,
-
+    highlight: false,
     technologies: [
       "React",
       "TypeScript",
@@ -45,12 +46,39 @@ export const projects: Project[] = [
     demo: "",
 
     featured: true,
-
+    highlight:true,
     technologies: [
       "React",
       "Express",
       "Prisma",
       "PostgreSQL",
+    ],
+  },
+
+  {
+    id: 3,
+
+    title: "Smart Classroom AI IoT",
+
+    category: "University Project--Group Project",
+
+    description:
+      "A modern Smart Classroom platform for teachers to manage students, class sessions, QR attendance, face recognition attendance, and future AI/IoT monitoring.",
+
+    image: smartClassroomImage,
+
+    github: "https://github.com/TunSopheak/Smart-Classroom-AI-IoT",
+
+    demo: "",
+
+    featured: true,
+    highlight: false,
+    technologies: [
+      "Python",
+      "HTML/CSS",
+      "JavaScript",
+      "Flutter",
+      "Raspberry Pi 5",
     ],
   },
 ];
