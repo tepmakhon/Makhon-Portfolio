@@ -2,14 +2,28 @@ import Container from "./Container";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-200 py-8">
+    <footer className="border-t border-slate-200 py-10">
+
       <Container>
 
-        <p className="text-center text-sm text-slate-500">
-          © 2026 Tep Makhon. All rights reserved.
-        </p>
+        <div className="text-center">
+
+          <h2 className="font-semibold">
+            Tep Makhon
+          </h2>
+
+          <p className="mt-2 text-sm text-slate-500">
+            Full Stack Developer
+          </p>
+
+          <p className="mt-6 text-sm text-slate-400">
+            © 2026 Tep Makhon. All rights reserved.
+          </p>
+
+        </div>
 
       </Container>
+
     </footer>
   );
 }
