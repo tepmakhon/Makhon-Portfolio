@@ -6,7 +6,7 @@ import DeveloperCard from "../../components/common/DeveloperCard";
 
 export default function Hero() {
   return (
-    <section className="min-h-[calc(100vh-64px)] flex items-center">
+    <section id="hero" className="min-h-[calc(100vh-64px)] flex items-center">
       <Container>
         <div className="grid items-center gap-16 lg:grid-cols-2">
 

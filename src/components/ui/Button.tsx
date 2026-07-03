@@ -1,11 +1,15 @@
 import type { ButtonHTMLAttributes } from "react";
 import { cn } from "../../utils/cn";
 
-type ButtonVariant = "primary" | "secondary" | "outline";
+type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "outline";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: ButtonVariant;
-};
+type ButtonProps =
+  ButtonHTMLAttributes<HTMLButtonElement> & {
+    variant?: ButtonVariant;
+  };
 
 export default function Button({
   variant = "primary",
@@ -14,19 +18,33 @@ export default function Button({
 }: ButtonProps) {
   const variants = {
     primary:
-      "bg-[#0B3D2E] text-white hover:bg-[#146C43]",
+      "bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)]",
 
     secondary:
-      "bg-[#146C43] text-white hover:bg-[#0B3D2E]",
+      "bg-[var(--color-secondary)] text-white hover:bg-[var(--color-primary)]",
 
     outline:
-      "border border-[#0B3D2E] text-[#0B3D2E] hover:bg-[#0B3D2E] hover:text-white",
+      `
+      border
+      border-[var(--color-primary)]
+      text-[var(--color-primary)]
+      hover:bg-[var(--color-primary)]
+      hover:text-white
+      `,
   };
 
   return (
     <button
       className={cn(
-        "rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300",
+        `
+        rounded-xl
+        px-6
+        py-3
+        text-sm
+        font-semibold
+        transition-all
+        duration-300
+        `,
         variants[variant],
         className
       )}

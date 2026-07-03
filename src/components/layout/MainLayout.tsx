@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 import Navbar from "./Navbar";
 import Footer from "../../features/footer/Footer";
-
+import BackToTop from "../common/BackToTop";
 export default function MainLayout() {
   return (
     <div className="flex min-h-screen flex-col">
@@ -13,6 +13,8 @@ export default function MainLayout() {
       </main>
 
       <Footer />
+
+      <BackToTop />
     </div>
   );
 }

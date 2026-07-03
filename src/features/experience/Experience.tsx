@@ -1,18 +1,15 @@
-import Container from "../../components/layout/Container";
-import SectionTitle from "../../components/ui/SectionTitle";
-
+import Section from "../../components/layout/Section";
 import ExperienceCard from "./ExperienceCard";
 
 import { experiences } from "../../data/experience";
 
 export default function Experience() {
   return (
-    <section className="py-24">
-      <Container>
-        <SectionTitle
-          title="Experience"
-          subtitle="My learning journey and projects."
-        />
+    <Section
+      id="experience"
+      title="Experience"
+      subtitle="My learning journey and projects."
+    >
 
         <div className="space-y-6">
           {experiences.map((experience) => (
@@ -22,7 +19,6 @@ export default function Experience() {
             />
           ))}
         </div>
-      </Container>
-    </section>
+    </Section>
   );
 }

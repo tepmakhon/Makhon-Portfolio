@@ -13,7 +13,18 @@ export default function Card({
   return (
     <div
       className={cn(
-        "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl",
+        `
+        rounded-3xl
+        border
+        border-[var(--color-border)]
+        bg-[var(--color-surface)]
+        text-[var(--color-text)]
+        p-6
+        shadow-sm
+        transition-all
+        duration-300
+        hover:shadow-xl
+        `,
         className
       )}
     >

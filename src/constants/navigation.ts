@@ -1,27 +1,34 @@
-export type NavigationItem = {
-  label: string;
-  href: string;
-};
-
-export const navigation: NavigationItem[] = [
+export const navigation = [
   {
     label: "Home",
-    href: "/",
+    href: "#hero",
   },
   {
     label: "About",
-    href: "/about",
+    href: "#about",
+  },
+  {
+    label: "Skills",
+    href: "#skills",
+  },
+  {
+    label: "Experience",
+    href: "#experience",
+  },
+  {
+    label: "Education",
+    href: "#education",
   },
   {
     label: "Projects",
-    href: "/projects",
+    href: "#projects",
   },
   {
     label: "Certificates",
-    href: "/certificates",
+    href: "#certificates",
   },
   {
     label: "Contact",
-    href: "/contact",
+    href: "#contact",
   },
 ];

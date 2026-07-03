@@ -1,18 +1,15 @@
-import Container from "../../components/layout/Container";
-import SectionTitle from "../../components/ui/SectionTitle";
-
+import Section from "../../components/layout/Section";
 import EducationCard from "./EducationCard";
 
 import { educations } from "../../data/education";
 
 export default function Education() {
   return (
-    <section id="education" className="py-28">
-      <Container>
-        <SectionTitle
-          title="Education"
-          subtitle="My academic journey and continuous learning."
-        />
+    <Section
+      id="education"
+      title="Education"
+      subtitle="My academic journey and continuous learning."
+    >
 
         <div className="space-y-8">
           {educations.map((education) => (
@@ -22,7 +19,6 @@ export default function Education() {
             />
           ))}
         </div>
-      </Container>
-    </section>
+    </Section>
   );
 }

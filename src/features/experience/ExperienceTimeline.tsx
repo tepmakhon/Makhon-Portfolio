@@ -7,7 +7,7 @@ import { experiences } from "../../data/experience";
 
 export default function ExperienceTimeline() {
   return (
-    <section className="py-24">
+    <section id="experience" className="py-24">
       <Container>
         <SectionTitle
           title="Experience"

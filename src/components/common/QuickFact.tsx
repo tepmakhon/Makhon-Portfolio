@@ -19,27 +19,25 @@ export default function QuickFact({
         gap-4
         rounded-2xl
         border
-        border-slate-200
-        bg-white
+        border-[var(--color-border)]
+        bg-[var(--color-surface)]
         p-5
         transition
         hover:shadow-md
       "
     >
-      <div className="text-xl text-[#0B3D2E]">
+      <div className="text-xl text-[var(--color-primary)]">
         {icon}
       </div>
 
       <div>
-
-        <p className="text-sm text-slate-500">
+        <p className="text-sm text-[var(--color-muted)]">
           {label}
         </p>
 
-        <p className="font-semibold">
+        <p className="font-semibold text-[var(--color-text)]">
           {value}
         </p>
-
       </div>
     </div>
   );

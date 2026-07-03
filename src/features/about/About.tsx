@@ -5,22 +5,18 @@ import {
   FiBriefcase,
 } from "react-icons/fi";
 
-import Container from "../../components/layout/Container";
-import SectionTitle from "../../components/ui/SectionTitle";
-
+import Section from "../../components/layout/Section";
 import QuickFact from "../../components/common/QuickFact";
 
 import { profile } from "../../data/profile";
 
 export default function About() {
   return (
-    <section className="py-24">
-      <Container>
-
-        <SectionTitle
-          title="About Me"
-          subtitle="Learn more about my journey, passion, and career goals."
-        />
+      <Section
+        id="about"
+        title="About Me"
+        subtitle="Learn more about my journey, passion, and career goals."
+      >
 
         <div className="grid gap-12 lg:grid-cols-2">
 
@@ -85,8 +81,6 @@ export default function About() {
           </div>
 
         </div>
-
-      </Container>
-    </section>
+      </Section>
   );
 }

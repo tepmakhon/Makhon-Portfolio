@@ -9,17 +9,27 @@ import { profile } from "../../data/profile";
 export default function FooterSocial() {
   return (
     <div>
-      <h3 className="text-lg font-semibold">
+      <h3 className="text-lg font-semibold text-[var(--color-text)]">
         Connect
       </h3>
 
       <div className="mt-6 flex gap-4">
-
         <a
           href={profile.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full border p-3 transition hover:bg-primary hover:text-white"
+          aria-label="GitHub"
+          className="
+            rounded-full
+            border
+            border-[var(--color-border)]
+            p-3
+            text-[var(--color-muted)]
+            transition-all
+            duration-300
+            hover:bg-[var(--color-primary)]
+            hover:text-white
+          "
         >
           <FiGithub size={20} />
         </a>
@@ -28,18 +38,39 @@ export default function FooterSocial() {
           href={profile.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full border p-3 transition hover:bg-primary hover:text-white"
+          aria-label="LinkedIn"
+          className="
+            rounded-full
+            border
+            border-[var(--color-border)]
+            p-3
+            text-[var(--color-muted)]
+            transition-all
+            duration-300
+            hover:bg-[var(--color-primary)]
+            hover:text-white
+          "
         >
           <FiLinkedin size={20} />
         </a>
 
         <a
           href={`mailto:${profile.email}`}
-          className="rounded-full border p-3 transition hover:bg-primary hover:text-white"
+          aria-label="Email"
+          className="
+            rounded-full
+            border
+            border-[var(--color-border)]
+            p-3
+            text-[var(--color-muted)]
+            transition-all
+            duration-300
+            hover:bg-[var(--color-primary)]
+            hover:text-white
+          "
         >
           <FiMail size={20} />
         </a>
-
       </div>
     </div>
   );

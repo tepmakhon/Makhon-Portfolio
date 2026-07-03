@@ -10,7 +10,19 @@ export default function Input({
   return (
     <input
       className={cn(
-        "w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition-all focus:border-[#0B3D2E]",
+        `
+        w-full
+        rounded-xl
+        border
+        border-[var(--color-border)]
+        bg-[var(--color-surface)]
+        px-4
+        py-3
+        text-[var(--color-text)]
+        outline-none
+        transition-all
+        focus:border-[var(--color-primary)]
+        `,
         className
       )}
       {...props}

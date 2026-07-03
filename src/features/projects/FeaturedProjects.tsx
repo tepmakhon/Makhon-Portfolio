@@ -1,6 +1,4 @@
-import Container from "../../components/layout/Container";
-import SectionTitle from "../../components/ui/SectionTitle";
-
+import Section from "../../components/layout/Section";
 import FeaturedProject from "./FeaturedProject";
 import ProjectCard from "./ProjectCard";
 
@@ -15,15 +13,11 @@ export default function FeaturedProjects() {
     projects.filter((p) => !p.highlight);
 
   return (
-    <section className="py-24">
-
-      <Container>
-
-        <SectionTitle
-          title="Featured Projects"
-          subtitle="Projects that demonstrate my technical skills."
-        />
-
+    <Section
+      id="projects"
+      title="Featured Projects"
+      subtitle="Projects that demonstrate my technical skills."
+    >
         {highlightProject && (
           <FeaturedProject
             project={highlightProject}
@@ -41,8 +35,6 @@ export default function FeaturedProjects() {
 
         </div>
 
-      </Container>
-
-    </section>
+    </Section>
   );
 }

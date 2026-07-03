@@ -1,42 +1,146 @@
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { FiMenu } from "react-icons/fi";
+
+import Button from "../ui/Button";
+import Container from "./Container";
+import MobileMenu from "./MobileMenu";
 
 import { navigation } from "../../constants/navigation";
-import Container from "./Container";
 
+import useScroll from "../../hooks/useScroll";
+import useActiveSection from "../../hooks/useActiveSection";
+import ThemeToggle from "../common/ThemeToggle";
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  const scrolled = useScroll();
+  const active = useActiveSection();
+
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
-      <Container>
-        <nav className="flex h-16 items-center justify-between">
-
-          <NavLink
-            to="/"
-            className="text-lg font-bold"
+    <>
+      <header
+        className={`
+          sticky
+          top-0
+          z-50
+          transition-all
+          duration-300
+          ${
+            scrolled
+              ? "border-b border-[var(--color-border)] bg-[var(--color-surface)]/95 shadow-lg backdrop-blur"
+              : "bg-[var(--color-surface)]/80 backdrop-blur"
+          }
+        `}
+      >
+        <Container>
+          <nav
+            className={`
+              flex
+              items-center
+              justify-between
+              transition-all
+              duration-300
+              ${scrolled ? "h-14" : "h-16"}
+            `}
           >
-            Makhon
-          </NavLink>
+            {/* Logo */}
 
-          <ul className="hidden items-center gap-8 md:flex">
+            <a
+              href="#hero"
+              className={`
+                flex
+                items-center
+                gap-1
+                font-bold
+                transition-all
+                duration-300
+                ${scrolled ? "text-lg" : "text-xl"}
+              `}
+            >
+              <span className="text-[var(--color-primary)]">
+                Tep
+              </span>
 
-            {navigation.map((item) => (
-              <li key={item.href}>
-                <NavLink
-                  to={item.href}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-semibold text-[#0B3D2E]"
-                      : "text-slate-500 transition hover:text-[#0B3D2E]"
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              </li>
-            ))}
+              <span className="text-[var(--color-text)]">
+                Makhon
+              </span>
+            </a>
 
-          </ul>
+            {/* Desktop Navigation */}
 
-        </nav>
-      </Container>
-    </header>
+            <ul className="hidden items-center gap-8 lg:flex">
+              {navigation.map((item) => {
+                const sectionId = item.href.replace("#", "");
+
+                return (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      className={`
+                        relative
+                        py-2
+                        text-sm
+                        font-medium
+                        transition-all
+                        duration-300
+
+                        ${
+                          active === sectionId
+                            ? "text-[var(--color-primary)]"
+                            : "text-[var(--color-muted)] hover:text-[var(--color-primary)]"
+                        }
+                      `}
+                    >
+                      {item.label}
+
+                      {active === sectionId && (
+                        <span
+                          className="
+                            absolute
+                            bottom-0
+                            left-0
+                            h-0.5
+                            w-full
+                            rounded-full
+                            bg-[var(--color-primary)]
+                          "
+                        />
+                      )}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+
+            {/* Right Side */}
+
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
+              <Button
+                className="hidden lg:block"
+                onClick={() => {
+                  window.open("/resume.pdf", "_blank");
+                }}
+              >
+                Download CV
+              </Button>
+
+              <button
+                onClick={() => setOpen(true)}
+                className="lg:hidden"
+                aria-label="Open menu"
+              >
+                <FiMenu size={28} />
+              </button>
+            </div>
+          </nav>
+        </Container>
+      </header>
+
+      <MobileMenu
+        open={open}
+        onClose={() => setOpen(false)}
+      />
+    </>
   );
 }
