@@ -10,7 +10,7 @@ export const profile = {
   title: "Full Stack Developer",
 
   headline:
-    "Building scalable web applications with React, TypeScript, Express, PostgreSQL, and AI.",
+    "I build modern, scalable, and user-focused web applications using React, TypeScript, Express, PostgreSQL, Prisma, and AI technologies.",
 
   bio:
     "Passionate Full Stack Developer who enjoys building modern web applications using React, TypeScript, Express, PostgreSQL, and AI. I enjoy learning new technologies, solving real-world problems, and creating user-friendly digital experiences.",
@@ -78,7 +78,7 @@ export const profile = {
   // ========================
 
   stats: {
-    projects: 8,
+    projects: 5,
     certificates: 5,
     technologies: 15,
   },
