@@ -1,24 +1,18 @@
-import type { ReactNode } from "react";
+import { Outlet } from "react-router-dom";
 
-import Footer from "./Footer";
 import Navbar from "./Navbar";
+import Footer from "../../features/footer/Footer";
 
-type MainLayoutProps = {
-  children: ReactNode;
-};
-
-export default function MainLayout({
-  children,
-}: MainLayoutProps) {
+export default function MainLayout() {
   return (
-    <div className="min-h-screen">
-
+    <div className="flex min-h-screen flex-col">
       <Navbar />
 
-      <main>{children}</main>
+      <main className="flex-1">
+        <Outlet />
+      </main>
 
       <Footer />
-
     </div>
   );
 }
