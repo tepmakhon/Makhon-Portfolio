@@ -9,12 +9,12 @@ export default function Badge({
     <span
       className="
         rounded-full
-        bg-[var(--color-primary)]/10
+        bg-[var(--color-primary-soft)]
         px-3
         py-1
         text-xs
         font-medium
-        text-[var(--color-primary)]
+        text-[var(--color-badge-text)]
       "
     >
       {children}

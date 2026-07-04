@@ -1,14 +1,15 @@
 import Badge from "../../components/ui/Badge";
 import Card from "../../components/ui/Card";
 import type { Experience } from "../../data/experience";
-
+import MotionCard from "../../components/common/MotionCard";
 type Props = {
   experience: Experience;
 };
 
 export default function ExperienceCard({ experience }: Props) {
   return (
-    <Card>
+    <MotionCard>
+      <Card>
       <div className="flex flex-col gap-4">
         <span className="text-sm font-semibold text-[#146C43]">
           {experience.year}
@@ -34,6 +35,6 @@ export default function ExperienceCard({ experience }: Props) {
           ))}
         </div>
       </div>
-    </Card>
-  );
+  </Card>
+</MotionCard>  );
 }

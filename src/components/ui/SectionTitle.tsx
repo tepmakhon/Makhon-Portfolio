@@ -30,7 +30,7 @@ export default function SectionTitle({
           className="
             inline-block
             rounded-full
-            bg-[var(--color-primary)]/10
+            bg-[var(--color-primary-soft)]
             px-4
             py-2
             text-xs

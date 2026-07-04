@@ -4,6 +4,7 @@ import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
 
 import type { Certificate } from "../../types/certificate";
+import MotionCard from "../../components/common/MotionCard";
 
 type Props = {
   certificate: Certificate;
@@ -13,7 +14,8 @@ export default function CertificateCard({
   certificate,
 }: Props) {
   return (
-    <Card className="overflow-hidden p-0 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+    <MotionCard>
+      <Card className="overflow-hidden p-0">
       <img
         src={certificate.image}
         alt={certificate.title}
@@ -54,5 +56,6 @@ export default function CertificateCard({
         )}
       </div>
     </Card>
-  );
+  </MotionCard>
+);
 }

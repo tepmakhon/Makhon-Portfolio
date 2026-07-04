@@ -8,10 +8,11 @@ import {
 import Card from "../../components/ui/Card";
 
 import { profile } from "../../data/profile";
-
+import MotionCard from "../../components/common/MotionCard";
 export default function ContactInfo() {
   return (
-    <Card className="space-y-8">
+    <MotionCard>
+      <Card className="space-y-8">
       <h3 className="text-3xl font-bold">
         Let's Work Together
       </h3>
@@ -44,6 +45,7 @@ export default function ContactInfo() {
         </div>
 
       </div>
-    </Card>
+  </Card>
+</MotionCard>
   );
 }

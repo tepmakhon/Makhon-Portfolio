@@ -1,7 +1,7 @@
 import Card from "../../components/ui/Card";
 
 import type { Skill } from "../../data/skills";
-
+import MotionCard from "../../components/common/MotionCard";
 type Props = {
   title: string;
   skills: Skill[];
@@ -18,7 +18,8 @@ export default function SkillCategoryCard({
   skills,
 }: Props) {
   return (
-    <Card className="h-full">
+    <MotionCard>
+      <Card className="h-full">
       <h3 className="mb-6 text-xl font-semibold">
         {title}
       </h3>
@@ -41,6 +42,7 @@ export default function SkillCategoryCard({
           </div>
         ))}
       </div>
-    </Card>
+  </Card>
+</MotionCard>
   );
 }

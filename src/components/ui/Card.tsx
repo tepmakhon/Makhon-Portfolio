@@ -20,10 +20,10 @@ export default function Card({
         bg-[var(--color-surface)]
         text-[var(--color-text)]
         p-6
-        shadow-sm
+        shadow-[var(--shadow-card)]
+        hover:shadow-[var(--shadow-hover)]
         transition-all
         duration-300
-        hover:shadow-xl
         `,
         className
       )}

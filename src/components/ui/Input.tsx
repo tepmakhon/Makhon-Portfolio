@@ -22,6 +22,9 @@ export default function Input({
         outline-none
         transition-all
         focus:border-[var(--color-primary)]
+        focus:ring-2
+        focus:ring-[var(--color-primary)]/20
+        placeholder:text-[var(--color-muted)]
         `,
         className
       )}

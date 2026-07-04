@@ -46,7 +46,7 @@ export const projects: Project[] = [
     demo: "",
 
     featured: true,
-    highlight:true,
+    highlight: false,
     technologies: [
       "React",
       "Express",

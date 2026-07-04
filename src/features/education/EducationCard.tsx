@@ -4,7 +4,7 @@ import Card from "../../components/ui/Card";
 import Badge from "../../components/ui/Badge";
 
 import type { Education } from "../../data/education";
-
+import MotionCard from "../../components/common/MotionCard";
 type Props = {
   education: Education;
 };
@@ -13,7 +13,8 @@ export default function EducationCard({
   education,
 }: Props) {
   return (
-    <Card className="transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <MotionCard>
+      <Card>
       <div className="flex flex-col gap-5">
         <h3 className="text-2xl font-bold">
           {education.degree}
@@ -45,6 +46,7 @@ export default function EducationCard({
           ))}
         </div>
       </div>
-    </Card>
+  </Card>
+</MotionCard>
   );
 }

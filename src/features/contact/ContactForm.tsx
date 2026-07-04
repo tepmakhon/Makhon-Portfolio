@@ -1,9 +1,10 @@
 import Button from "../../components/ui/Button";
 import Card from "../../components/ui/Card";
-
+import MotionCard from "../../components/common/MotionCard";
 export default function ContactForm() {
   return (
-    <Card>
+    <MotionCard>
+      <Card>
 
       <form className="space-y-6">
 
@@ -38,5 +39,6 @@ export default function ContactForm() {
       </form>
 
     </Card>
+  </MotionCard>
   );
 }

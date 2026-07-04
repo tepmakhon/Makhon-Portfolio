@@ -26,7 +26,7 @@ export default function Button({
     outline:
       `
       border
-      border-[var(--color-primary)]
+      bg-[var(--color-primary-soft)]
       text-[var(--color-primary)]
       hover:bg-[var(--color-primary)]
       hover:text-white
@@ -44,6 +44,7 @@ export default function Button({
         font-semibold
         transition-all
         duration-300
+        active:scale-95
         `,
         variants[variant],
         className
