@@ -5,7 +5,7 @@ import Button from "../../components/ui/Button";
 import DeveloperCard from "../../components/common/DeveloperCard";
 
 import { profile } from "../../data/profile";
-
+import AnimatedCounter from "../../components/common/AnimatedCounter";
 import {
   slideLeft,
   slideRight,
@@ -69,7 +69,10 @@ export default function Hero() {
             >
               <motion.div variants={fadeUp}>
                 <h3 className="text-3xl font-bold text-[var(--color-primary)]">
-                  {profile.stats.projects}+
+                  <AnimatedCounter
+                    end={profile.stats.projects}
+                    suffix="+"
+                  />
                 </h3>
 
                 <p className="text-sm text-[var(--color-muted)]">
@@ -79,7 +82,10 @@ export default function Hero() {
 
               <motion.div variants={fadeUp}>
                 <h3 className="text-3xl font-bold text-[var(--color-primary)]">
-                  {profile.stats.certificates}+
+                  <AnimatedCounter
+                    end={profile.stats.certificates}
+                    suffix="+"
+                  />
                 </h3>
 
                 <p className="text-sm text-[var(--color-muted)]">
@@ -89,7 +95,10 @@ export default function Hero() {
 
               <motion.div variants={fadeUp}>
                 <h3 className="text-3xl font-bold text-[var(--color-primary)]">
-                  {profile.stats.technologies}+
+                  <AnimatedCounter
+                    end={profile.stats.technologies}
+                    suffix="+"
+                  />
                 </h3>
 
                 <p className="text-sm text-[var(--color-muted)]">
