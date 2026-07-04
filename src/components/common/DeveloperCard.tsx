@@ -46,8 +46,11 @@ export default function DeveloperCard() {
         border-[var(--color-border)]
         bg-[var(--color-surface)]
         p-8
-        shadow-lg
-        backdrop-blur
+        shadow-[var(--shadow-card)]
+        hover:shadow-[var(--shadow-hover)]
+        backdrop-blur-xl
+        transition-shadow
+        duration-300    
       "
     >
       <motion.div
@@ -68,13 +71,17 @@ export default function DeveloperCard() {
             duration: 0.3,
           }}
           className="
-            h-36
-            w-36
+            h-40
+            w-40
+            lg:h-44
+            lg:w-44
             rounded-full
             border-4
             border-[var(--color-surface)]
             object-cover
-            shadow-lg
+            shadow-[var(--shadow-card)]
+            ring-1
+            ring-[var(--color-primary)]/10
           "
         />
 
@@ -180,7 +187,10 @@ export default function DeveloperCard() {
 
         {/* Social */}
 
-        <div className="flex items-center justify-center gap-6">
+        <motion.div
+          variants={fadeUp}
+          className="flex items-center justify-center gap-6"
+        >
           <motion.a
             href={profile.github}
             target="_blank"
@@ -247,7 +257,7 @@ export default function DeveloperCard() {
           >
             <FiMail size={22} />
           </motion.a>
-        </div>
+        </motion.div>
       </motion.div>
     </motion.div>
   );

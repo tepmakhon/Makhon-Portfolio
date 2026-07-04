@@ -73,15 +73,24 @@ export const profile = {
     "Tailwind CSS",
   ],
 
-  // ========================
-  // Statistics
-  // ========================
+ // ========================
+// Statistics
+// ========================
 
-  stats: {
-    projects: 5,
-    certificates: 5,
-    technologies: 15,
+stats: [
+  {
+    value: 5,
+    label: "Projects",
   },
+  {
+    value: 5,
+    label: "Certificates",
+  },
+  {
+    value: 15,
+    label: "Technologies",
+  },
+],
 
   // ========================
   // Additional Information
