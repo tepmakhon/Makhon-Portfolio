@@ -102,7 +102,7 @@ export default function FeaturedProject({
                 text-[var(--color-muted)]
               "
             >
-              {project.description}
+              {project.overview}
             </motion.p>
 
             {/* Technologies */}

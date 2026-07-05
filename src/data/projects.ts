@@ -7,78 +7,145 @@ import smartClassroomImage from "../assets/images/projects/smartclassroom.png";
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Portfolio Website",
+
+    slug: "developer-portfolio",
+
+    title: "Developer Portfolio",
+
     category: "Personal Project",
 
-    description:
-      "A modern responsive portfolio built with React, TypeScript and Tailwind CSS.",
+    shortDescription:
+      "A modern responsive developer portfolio built with React and TypeScript.",
 
-    image: portfolioImage,
+    overview:
+      "A premium portfolio website showcasing my skills, projects, experience, education, and certifications. Built with reusable components, dark mode, animations, and responsive design.",
 
-    github: "https://github.com/tepmakhon/Makhon-Portfolio",
+    features: [
+      "Responsive Design",
+      "Dark Mode",
+      "Smooth Animations",
+      "Project Showcase",
+      "Certificates",
+      "Contact Form",
+    ],
 
-    demo: "",
-
-    featured: true,
-    highlight: false,
     technologies: [
       "React",
       "TypeScript",
       "Tailwind CSS",
+      "Framer Motion",
       "Cloudinary",
     ],
+
+    image: portfolioImage,
+
+    images: [
+      portfolioImage,
+      portfolioImage,
+      portfolioImage,
+    ],
+
+    github:
+      "https://github.com/tepmakhon/Makhon-Portfolio",
+
+    demo: "",
+
+    highlight: true,
   },
 
   {
     id: 2,
 
+    slug: "rupp-student-conference-platform",
+
     title: "RUPP Student Conference Platform",
 
     category: "University Project",
 
-    description:
+    shortDescription:
       "A scalable conference and opportunity platform for university students.",
 
-    image: ruppImage,
+    overview:
+      "A full-stack web application designed to help RUPP students discover conferences, internships, scholarships, competitions, and career opportunities in one platform.",
 
-    github: "https://github.com/tepmakhon/rupp-student-conference-platform",
+    features: [
+      "JWT Authentication",
+      "Student Dashboard",
+      "Opportunity Management",
+      "Conference Registration",
+      "Admin Dashboard",
+      "Role Based Access Control",
+    ],
 
-    demo: "",
-
-    featured: true,
-    highlight: false,
     technologies: [
       "React",
       "Express",
       "Prisma",
       "PostgreSQL",
+      "Tailwind CSS",
     ],
+
+    image: ruppImage,
+
+    images: [
+      ruppImage,
+      ruppImage,
+      ruppImage,
+    ],
+
+    github:
+      "https://github.com/tepmakhon/rupp-student-conference-platform",
+
+    demo: "",
+
+    highlight: false,
   },
 
   {
     id: 3,
 
+    slug: "smart-classroom-ai-iot",
+
     title: "Smart Classroom AI IoT",
 
-    category: "University Project--Group Project",
+    category: "University Group Project",
 
-    description:
-      "A modern Smart Classroom platform for teachers to manage students, class sessions, QR attendance, face recognition attendance, and future AI/IoT monitoring.",
+    shortDescription:
+      "AI and IoT based classroom management platform.",
+
+    overview:
+      "A smart classroom system that supports attendance using QR Code and Face Recognition, AI monitoring, classroom management, and IoT integration using Raspberry Pi.",
+
+    features: [
+      "QR Attendance",
+      "Face Recognition",
+      "AI Monitoring",
+      "Teacher Dashboard",
+      "Flutter Mobile App",
+      "IoT Integration",
+    ],
+
+    technologies: [
+      "Python",
+      "Flutter",
+      "JavaScript",
+      "HTML/CSS",
+      "Raspberry Pi 5",
+    ],
 
     image: smartClassroomImage,
 
-    github: "https://github.com/TunSopheak/Smart-Classroom-AI-IoT",
+    images: [
+      smartClassroomImage,
+      smartClassroomImage,
+      smartClassroomImage,
+    ],
+
+    github:
+      "https://github.com/TunSopheak/Smart-Classroom-AI-IoT",
 
     demo: "",
 
-    featured: true,
     highlight: false,
-    technologies: [
-      "Python",
-      "HTML/CSS",
-      "JavaScript",
-      "Flutter",
-      "Raspberry Pi 5",
-    ],
   },
 ];

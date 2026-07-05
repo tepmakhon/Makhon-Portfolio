@@ -1,21 +1,27 @@
-export interface Project {
+export type Project = {
   id: number;
+
+  slug: string;
 
   title: string;
 
   category: string;
 
-  description: string;
+  shortDescription: string;
+
+  overview: string;
+
+  features: string[];
+
+  technologies: string[];
 
   image: string;
+
+  images: string[];
 
   github: string;
 
   demo?: string;
 
-  featured: boolean;
-
-  technologies: string[];
-
-  highlight?: boolean;
-}
+  highlight: boolean;
+};

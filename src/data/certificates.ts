@@ -18,7 +18,7 @@ export const certificates: Certificate[] = [
     issueDate: "2024",
     credentialUrl: "",
     image: Etec,
-    featured: true,
+    featured: false,
   },
 
   {
