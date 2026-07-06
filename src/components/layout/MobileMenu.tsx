@@ -1,4 +1,5 @@
 import { FiX } from "react-icons/fi";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import Button from "../ui/Button";
 import { navigation } from "../../constants/navigation";
@@ -12,6 +13,24 @@ export default function MobileMenu({
   open,
   onClose,
 }: Props) {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavigation = (href: string) => {
+    const id = href.replace("#", "");
+
+    onClose();
+
+    if (location.pathname === "/") {
+      document.getElementById(id)?.scrollIntoView({
+        behavior: "smooth",
+      });
+      return;
+    }
+
+    navigate(`/${href}`);
+  };
+
   return (
     <div
       className={`
@@ -28,6 +47,8 @@ export default function MobileMenu({
         }
       `}
     >
+      {/* Header */}
+
       <div className="flex items-center justify-between border-b border-[var(--color-border)] p-6">
         <h2 className="text-xl font-bold text-[var(--color-text)]">
           Menu
@@ -36,32 +57,40 @@ export default function MobileMenu({
         <button
           onClick={onClose}
           className="text-[var(--color-text)]"
+          aria-label="Close menu"
         >
           <FiX size={28} />
         </button>
       </div>
 
+      {/* Navigation */}
+
       <nav className="flex flex-col p-6">
         {navigation.map((item) => (
-          <a
+          <button
             key={item.href}
-            href={item.href}
-            onClick={onClose}
+            onClick={() => handleNavigation(item.href)}
             className="
               border-b
               border-[var(--color-border)]
               py-4
+              text-left
               text-lg
               text-[var(--color-text)]
+              transition-colors
+              hover:text-[var(--color-primary)]
             "
           >
             {item.label}
-          </a>
+          </button>
         ))}
 
         <Button
           className="mt-8"
-          onClick={onClose}
+          onClick={() => {
+            onClose();
+            window.open("/resume.pdf", "_blank");
+          }}
         >
           Download CV
         </Button>

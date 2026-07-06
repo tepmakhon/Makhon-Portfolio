@@ -1,7 +1,12 @@
 import { useParams } from "react-router-dom";
 
 import { projects } from "../data/projects";
-
+import ProjectHero from "../features/project-detail/ProjectHero";
+import ProjectOverview from "../features/project-detail/ProjectOverview";
+import ProjectFeatures from "../features/project-detail/ProjectFeatures";
+import ProjectTechStack from "../features/project-detail/ProjectTechStack";
+import ProjectGallery from "../features/project-detail/ProjectGallery";
+import RelatedProjects from "../features/project-detail/RelatedProjects";
 export default function ProjectDetail() {
   const { slug } = useParams();
 
@@ -18,18 +23,32 @@ export default function ProjectDetail() {
       </div>
     );
   }
-
+  const relatedProjects = projects
+    .filter((p) => p.id !== project.id)
+    .slice(0, 3);
   return (
-    <section className="py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <h1 className="text-5xl font-bold">
-          {project.title}
-        </h1>
+  <>
+    <ProjectHero project={project} />
 
-        <p className="mt-6 text-lg text-[var(--color-muted)]">
-          {project.shortDescription}
-        </p>
-      </div>
-    </section>
+    <ProjectOverview
+      overview={project.overview}
+    />
+
+    <ProjectFeatures
+      features={project.features}
+    />
+
+    <ProjectTechStack
+      technologies={project.technologies}
+    />
+
+    <ProjectGallery
+      images={project.images}
+    />
+
+    <RelatedProjects
+      projects={relatedProjects}
+    />
+  </>
   );
 }

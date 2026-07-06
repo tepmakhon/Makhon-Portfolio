@@ -18,22 +18,49 @@ export default function ProjectCard({
   project,
 }: Props) {
   return (
-    <Link to={`/projects/${project.slug}`}>
-      <Card className="overflow-hidden p-0 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+    <Link
+      to={`/projects/${project.slug}`}
+      className="block"
+    >
+      <Card
+        className="
+          overflow-hidden
+          p-0
+          transition-all
+          duration-300
+          hover:-translate-y-2
+          hover:shadow-2xl
+        "
+      >
+        {/* Project Image */}
 
         <img
           src={project.image}
           alt={project.title}
-          className="h-56 w-full object-cover"
+          className="
+            h-56
+            w-full
+            object-cover
+            transition-transform
+            duration-500
+            hover:scale-105
+          "
         />
 
-        <div className="p-6">
+        {/* Content */}
 
-          <span className="text-sm font-semibold text-[var(--color-primary)]">
+        <div className="p-6">
+          <span
+            className="
+              text-sm
+              font-semibold
+              text-[var(--color-primary)]
+            "
+          >
             {project.category}
           </span>
 
-          <h3 className="mt-3 text-2xl font-bold">
+          <h3 className="mt-3 text-2xl font-bold text-[var(--color-text)]">
             {project.title}
           </h3>
 
@@ -41,14 +68,20 @@ export default function ProjectCard({
             {project.shortDescription}
           </p>
 
+          {/* Technologies */}
+
           <div className="mt-6 flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
-              <Badge key={tech}>{tech}</Badge>
+              <Badge key={tech}>
+                {tech}
+              </Badge>
             ))}
           </div>
 
+          {/* Buttons */}
+
           <div
-            className="mt-8 flex gap-3"
+            className="mt-8 flex flex-wrap gap-3"
             onClick={(e) => e.stopPropagation()}
           >
             <Button
@@ -78,9 +111,7 @@ export default function ProjectCard({
               </Button>
             )}
           </div>
-
         </div>
-
       </Card>
     </Link>
   );

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import Button from "../ui/Button";
 import Container from "./Container";
@@ -10,11 +11,28 @@ import { navigation } from "../../constants/navigation";
 import useScroll from "../../hooks/useScroll";
 import useActiveSection from "../../hooks/useActiveSection";
 import ThemeToggle from "../common/ThemeToggle";
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const scrolled = useScroll();
   const active = useActiveSection();
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavigation = (href: string) => {
+    const id = href.replace("#", "");
+
+    if (location.pathname === "/") {
+      document.getElementById(id)?.scrollIntoView({
+        behavior: "smooth",
+      });
+      return;
+    }
+
+    navigate(`/${href}`);
+  };
 
   return (
     <>
@@ -45,8 +63,8 @@ export default function Navbar() {
           >
             {/* Logo */}
 
-            <a
-              href="#hero"
+            <button
+              onClick={() => handleNavigation("#hero")}
               className={`
                 flex
                 items-center
@@ -64,7 +82,7 @@ export default function Navbar() {
               <span className="text-[var(--color-text)]">
                 Makhon
               </span>
-            </a>
+            </button>
 
             {/* Desktop Navigation */}
 
@@ -74,8 +92,10 @@ export default function Navbar() {
 
                 return (
                   <li key={item.href}>
-                    <a
-                      href={item.href}
+                    <button
+                      onClick={() =>
+                        handleNavigation(item.href)
+                      }
                       className={`
                         relative
                         py-2
@@ -106,7 +126,7 @@ export default function Navbar() {
                           "
                         />
                       )}
-                    </a>
+                    </button>
                   </li>
                 );
               })}
@@ -116,11 +136,12 @@ export default function Navbar() {
 
             <div className="flex items-center gap-4">
               <ThemeToggle />
+
               <Button
                 className="hidden lg:block"
-                onClick={() => {
-                  window.open("/resume.pdf", "_blank");
-                }}
+                onClick={() =>
+                  window.open("/resume.pdf", "_blank")
+                }
               >
                 Download CV
               </Button>
