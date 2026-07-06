@@ -1,24 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import { Toaster } from "sonner";
+import { HelmetProvider } from "react-helmet-async";
 
 import "./styles/globals.css";
 import { router } from "./routes";
 import { ThemeProvider } from "./context/ThemeContext";
+import { Toaster } from "sonner";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(
+  document.getElementById("root")!
+).render(
   <React.StrictMode>
-    <ThemeProvider>
-      <RouterProvider router={router} />
+    <HelmetProvider>
+      <ThemeProvider>
+        <RouterProvider router={router} />
 
-      <Toaster
-        position="top-right"
-        richColors
-        closeButton
-        duration={4000}
-        theme="system"
-      />
-    </ThemeProvider>
+        <Toaster
+          richColors
+          position="top-right"
+        />
+      </ThemeProvider>
+    </HelmetProvider>
   </React.StrictMode>
 );

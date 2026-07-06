@@ -7,6 +7,8 @@ import ProjectFeatures from "../features/project-detail/ProjectFeatures";
 import ProjectTechStack from "../features/project-detail/ProjectTechStack";
 import ProjectGallery from "../features/project-detail/ProjectGallery";
 import RelatedProjects from "../features/project-detail/RelatedProjects";
+import ProjectNavigation from "../features/project-detail/ProjectNavigation";
+import SEO from "../components/common/SEO";
 export default function ProjectDetail() {
   const { slug } = useParams();
 
@@ -26,8 +28,29 @@ export default function ProjectDetail() {
   const relatedProjects = projects
     .filter((p) => p.id !== project.id)
     .slice(0, 3);
+
+  const currentIndex = projects.findIndex(
+    (p) => p.id === project.id
+  );
+
+  const previousProject =
+    currentIndex > 0
+      ? projects[currentIndex - 1]
+      : undefined;
+
+  const nextProject =
+    currentIndex < projects.length - 1
+      ? projects[currentIndex + 1]
+      : undefined;
   return (
   <>
+    <SEO
+      title={`${project.title} | Tep Makhon`}
+      description={project.shortDescription}
+      image={project.image}
+      url={`https://tepmakhon.dev/projects/${project.slug}`}
+    />
+
     <ProjectHero project={project} />
 
     <ProjectOverview
@@ -48,6 +71,11 @@ export default function ProjectDetail() {
 
     <RelatedProjects
       projects={relatedProjects}
+    />
+
+    <ProjectNavigation
+      previous={previousProject}
+      next={nextProject}
     />
   </>
   );
