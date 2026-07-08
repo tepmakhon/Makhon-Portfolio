@@ -1,8 +1,8 @@
 import type { Project } from "../types/project";
 
-import portfolioImage from "../assets/images/projects/portfolio.png";
-import ruppImage from "../assets/images/projects/rupp.png";
-import smartClassroomImage from "../assets/images/projects/smartclassroom.png";
+import portfolioImage from "../assets/images/projects/portfolio.webp";
+import ruppImage from "../assets/images/projects/rupp.webp";
+import smartClassroomImage from "../assets/images/projects/smartclassroom.webp";
 
 export const projects: Project[] = [
   {

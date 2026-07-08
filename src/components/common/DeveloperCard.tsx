@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 import { profile } from "../../data/profile";
 import Badge from "../ui/Badge";
-import profileImage from "../../assets/images/profile.png";
+import profileImage from "../../assets/images/profile.webp";
 
 import {
   fadeUp,

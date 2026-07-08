@@ -1,31 +1,42 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
 import MainLayout from "../components/layout/MainLayout";
+import PageLoader from "../components/common/PageLoader";
 
-import Home from "../pages/Home";
-import ProjectDetail from "../pages/ProjectDetail";
-import NotFound from "../pages/NotFound";
+const Home = lazy(() => import("../pages/Home"));
+const ProjectDetail = lazy(() => import("../pages/ProjectDetail"));
+const NotFound = lazy(() => import("../pages/NotFound"));
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <Home />
+          </Suspense>
+        ),
       },
-
       {
         path: "projects/:slug",
-        element: <ProjectDetail />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <ProjectDetail />
+          </Suspense>
+        ),
       },
     ],
   },
-
   {
     path: "*",
-    element: <NotFound />,
+    element: (
+      <Suspense fallback={<PageLoader />}>
+        <NotFound />
+      </Suspense>
+    ),
   },
 ]);
