@@ -23,8 +23,7 @@ export default function useContactForm() {
       console.error(error);
 
       toast.error("Unable to send message.", {
-        description:
-          "Please try again in a few moments.",
+        description: "Please try again in a few moments.",
       });
 
       return false;

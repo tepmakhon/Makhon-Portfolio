@@ -15,16 +15,11 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
-export function ThemeProvider({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("system");
 
   useEffect(() => {
-    const saved =
-      localStorage.getItem("theme") as Theme | null;
+    const saved = localStorage.getItem("theme") as Theme | null;
 
     if (saved) {
       setTheme(saved);
@@ -35,15 +30,11 @@ export function ThemeProvider({
     const root = document.documentElement;
 
     const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: dark)",
     ).matches;
 
     const current =
-      theme === "system"
-        ? prefersDark
-          ? "dark"
-          : "light"
-        : theme;
+      theme === "system" ? (prefersDark ? "dark" : "light") : theme;
 
     root.dataset.theme = current;
 
@@ -66,9 +57,7 @@ export function useTheme() {
   const context = useContext(ThemeContext);
 
   if (!context) {
-    throw new Error(
-      "useTheme must be used inside ThemeProvider"
-    );
+    throw new Error("useTheme must be used inside ThemeProvider");
   }
 
   return context;

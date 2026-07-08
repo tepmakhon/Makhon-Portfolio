@@ -25,7 +25,7 @@ export default function useActiveSection() {
       },
       {
         threshold: 0.4,
-      }
+      },
     );
 
     sections.forEach((id) => {

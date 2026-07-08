@@ -1,10 +1,6 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  FiChevronLeft,
-  FiChevronRight,
-  FiX,
-} from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
 
 type Props = {
   images: string[];
@@ -22,30 +18,20 @@ export default function ImageLightbox({
   onPrevious,
 }: Props) {
   useEffect(() => {
-    const handleKeyDown = (
-      e: KeyboardEvent
-    ) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
 
-      if (e.key === "ArrowLeft")
-        onPrevious();
+      if (e.key === "ArrowLeft") onPrevious();
 
-      if (e.key === "ArrowRight")
-        onNext();
+      if (e.key === "ArrowRight") onNext();
     };
 
-    window.addEventListener(
-      "keydown",
-      handleKeyDown
-    );
+    window.addEventListener("keydown", handleKeyDown);
 
     document.body.style.overflow = "hidden";
 
     return () => {
-      window.removeEventListener(
-        "keydown",
-        handleKeyDown
-      );
+      window.removeEventListener("keydown", handleKeyDown);
 
       document.body.style.overflow = "";
     };
@@ -135,12 +121,8 @@ export default function ImageLightbox({
             duration: 0.25,
           }}
           src={images[current]}
-          alt={`Screenshot ${
-            current + 1
-          }`}
-          onClick={(e) =>
-            e.stopPropagation()
-          }
+          alt={`Screenshot ${current + 1}`}
+          onClick={(e) => e.stopPropagation()}
           className="
             max-h-[85vh]
             max-w-[90vw]

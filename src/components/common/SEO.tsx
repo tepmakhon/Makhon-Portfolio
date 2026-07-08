@@ -21,15 +21,9 @@ export default function SEO({
 
       <title>{title}</title>
 
-      <meta
-        name="description"
-        content={description}
-      />
+      <meta name="description" content={description} />
 
-      <meta
-        name="author"
-        content="Tep Makhon"
-      />
+      <meta name="author" content="Tep Makhon" />
 
       <meta
         name="keywords"
@@ -48,64 +42,31 @@ export default function SEO({
 
       {/* Canonical */}
 
-      <link
-        rel="canonical"
-        href={url}
-      />
+      <link rel="canonical" href={url} />
 
       {/* Open Graph */}
 
-      <meta
-        property="og:type"
-        content="website"
-      />
+      <meta property="og:type" content="website" />
 
-      <meta
-        property="og:title"
-        content={title}
-      />
+      <meta property="og:title" content={title} />
 
-      <meta
-        property="og:description"
-        content={description}
-      />
+      <meta property="og:description" content={description} />
 
-      <meta
-        property="og:image"
-        content={image}
-      />
+      <meta property="og:image" content={image} />
 
-      <meta
-        property="og:url"
-        content={url}
-      />
+      <meta property="og:url" content={url} />
 
-      <meta
-        property="og:site_name"
-        content="Tep Makhon Portfolio"
-      />
+      <meta property="og:site_name" content="Tep Makhon Portfolio" />
 
       {/* Twitter */}
 
-      <meta
-        name="twitter:card"
-        content="summary_large_image"
-      />
+      <meta name="twitter:card" content="summary_large_image" />
 
-      <meta
-        name="twitter:title"
-        content={title}
-      />
+      <meta name="twitter:title" content={title} />
 
-      <meta
-        name="twitter:description"
-        content={description}
-      />
+      <meta name="twitter:description" content={description} />
 
-      <meta
-        name="twitter:image"
-        content={image}
-      />
+      <meta name="twitter:image" content={image} />
     </Helmet>
   );
 }

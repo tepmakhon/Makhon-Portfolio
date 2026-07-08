@@ -30,10 +30,7 @@ export default function ExperienceTimeline() {
 
           <div className="space-y-10">
             {experiences.map((experience) => (
-              <TimelineItem
-                key={experience.id}
-                experience={experience}
-              />
+              <TimelineItem key={experience.id} experience={experience} />
             ))}
           </div>
         </div>

@@ -12,9 +12,7 @@ type Props = {
   features: string[];
 };
 
-export default function ProjectFeatures({
-  features,
-}: Props) {
+export default function ProjectFeatures({ features }: Props) {
   return (
     <section className="pb-20">
       <Container>

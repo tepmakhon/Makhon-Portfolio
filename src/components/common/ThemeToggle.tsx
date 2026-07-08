@@ -7,13 +7,7 @@ export default function ThemeToggle() {
 
   return (
     <button
-      onClick={() =>
-        setTheme(
-          theme === "dark"
-            ? "light"
-            : "dark"
-        )
-      }
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className="
         rounded-xl
         border
@@ -22,11 +16,7 @@ export default function ThemeToggle() {
         hover:bg-slate-100
       "
     >
-      {theme === "dark" ? (
-        <FiSun />
-      ) : (
-        <FiMoon />
-      )}
+      {theme === "dark" ? <FiSun /> : <FiMoon />}
     </button>
   );
 }

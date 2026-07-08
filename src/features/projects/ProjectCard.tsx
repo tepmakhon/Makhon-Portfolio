@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  FiExternalLink,
-  FiGithub,
-} from "react-icons/fi";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 import Card from "../../components/ui/Card";
 import Badge from "../../components/ui/Badge";
@@ -14,14 +11,9 @@ type Props = {
   project: Project;
 };
 
-export default function ProjectCard({
-  project,
-}: Props) {
+export default function ProjectCard({ project }: Props) {
   return (
-    <Link
-      to={`/projects/${project.slug}`}
-      className="block"
-    >
+    <Link to={`/projects/${project.slug}`} className="block">
       <Card
         className="
           overflow-hidden
@@ -72,9 +64,7 @@ export default function ProjectCard({
 
           <div className="mt-6 flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
-              <Badge key={tech}>
-                {tech}
-              </Badge>
+              <Badge key={tech}>{tech}</Badge>
             ))}
           </div>
 

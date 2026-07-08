@@ -9,14 +9,11 @@ export default function NotFound() {
     <section className="flex min-h-[70vh] items-center">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-
           <h1 className="text-8xl font-black text-[var(--color-primary)]">
             404
           </h1>
 
-          <h2 className="mt-6 text-4xl font-bold">
-            Page Not Found
-          </h2>
+          <h2 className="mt-6 text-4xl font-bold">Page Not Found</h2>
 
           <p className="mt-6 text-lg leading-8 text-[var(--color-muted)]">
             Sorry, the page you're looking for doesn't exist or has been moved.
@@ -28,7 +25,6 @@ export default function NotFound() {
               Back to Home
             </Button>
           </Link>
-
         </div>
       </Container>
     </section>

@@ -6,9 +6,7 @@ type Props = {
   experience: Experience;
 };
 
-export default function TimelineItem({
-  experience,
-}: Props) {
+export default function TimelineItem({ experience }: Props) {
   return (
     <div className="relative pl-12">
       {/* Timeline Dot */}
@@ -32,13 +30,9 @@ export default function TimelineItem({
           {experience.year}
         </span>
 
-        <h3 className="mt-2 text-2xl font-bold">
-          {experience.title}
-        </h3>
+        <h3 className="mt-2 text-2xl font-bold">{experience.title}</h3>
 
-        <p className="mt-1 text-slate-500">
-          {experience.company}
-        </p>
+        <p className="mt-1 text-slate-500">{experience.company}</p>
 
         <p className="mt-6 leading-8 text-slate-600">
           {experience.description}

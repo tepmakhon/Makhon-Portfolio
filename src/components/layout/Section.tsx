@@ -22,16 +22,10 @@ export default function Section({
   containerClassName,
 }: SectionProps) {
   return (
-    <section
-      id={id}
-      className={cn("py-28", className)}
-    >
+    <section id={id} className={cn("py-28", className)}>
       <Container className={containerClassName}>
         {(title || subtitle) && (
-          <SectionTitle
-            title={title ?? ""}
-            subtitle={subtitle}
-          />
+          <SectionTitle title={title ?? ""} subtitle={subtitle} />
         )}
 
         {children}

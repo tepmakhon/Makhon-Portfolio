@@ -1,12 +1,8 @@
 import { cn } from "../../utils/cn";
 
-type InputProps =
-  React.InputHTMLAttributes<HTMLInputElement>;
+type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
-export default function Input({
-  className,
-  ...props
-}: InputProps) {
+export default function Input({ className, ...props }: InputProps) {
   return (
     <input
       className={cn(
@@ -26,7 +22,7 @@ export default function Input({
         focus:ring-[var(--color-primary)]/20
         placeholder:text-[var(--color-muted)]
         `,
-        className
+        className,
       )}
       {...props}
     />

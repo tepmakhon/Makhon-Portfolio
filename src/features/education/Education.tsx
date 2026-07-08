@@ -10,15 +10,11 @@ export default function Education() {
       title="Education"
       subtitle="My academic journey and continuous learning."
     >
-
-        <div className="space-y-8">
-          {educations.map((education) => (
-            <EducationCard
-              key={education.id}
-              education={education}
-            />
-          ))}
-        </div>
+      <div className="space-y-8">
+        {educations.map((education) => (
+          <EducationCard key={education.id} education={education} />
+        ))}
+      </div>
     </Section>
   );
 }

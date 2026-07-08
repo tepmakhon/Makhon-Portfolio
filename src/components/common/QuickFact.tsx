@@ -6,11 +6,7 @@ type QuickFactProps = {
   value: string;
 };
 
-export default function QuickFact({
-  icon,
-  label,
-  value,
-}: QuickFactProps) {
+export default function QuickFact({ icon, label, value }: QuickFactProps) {
   return (
     <div
       className="
@@ -26,18 +22,12 @@ export default function QuickFact({
         hover:shadow-md
       "
     >
-      <div className="text-xl text-[var(--color-primary)]">
-        {icon}
-      </div>
+      <div className="text-xl text-[var(--color-primary)]">{icon}</div>
 
       <div>
-        <p className="text-sm text-[var(--color-muted)]">
-          {label}
-        </p>
+        <p className="text-sm text-[var(--color-muted)]">{label}</p>
 
-        <p className="font-semibold text-[var(--color-text)]">
-          {value}
-        </p>
+        <p className="font-semibold text-[var(--color-text)]">{value}</p>
       </div>
     </div>
   );

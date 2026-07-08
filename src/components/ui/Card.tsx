@@ -6,10 +6,7 @@ type CardProps = {
   className?: string;
 };
 
-export default function Card({
-  children,
-  className,
-}: CardProps) {
+export default function Card({ children, className }: CardProps) {
   return (
     <div
       className={cn(
@@ -25,7 +22,7 @@ export default function Card({
         transition-all
         duration-300
         `,
-        className
+        className,
       )}
     >
       {children}

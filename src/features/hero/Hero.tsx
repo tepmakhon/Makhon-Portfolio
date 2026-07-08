@@ -100,10 +100,7 @@ export default function Hero() {
               className="mt-12 flex flex-wrap gap-10"
             >
               {profile.stats.map((item) => (
-                <motion.div
-                  key={item.label}
-                  variants={fadeUp}
-                >
+                <motion.div key={item.label} variants={fadeUp}>
                   <h3
                     className="
                       text-4xl
@@ -112,10 +109,7 @@ export default function Hero() {
                       lg:text-5xl
                     "
                   >
-                    <AnimatedCounter
-                      end={item.value}
-                      suffix="+"
-                    />
+                    <AnimatedCounter end={item.value} suffix="+" />
                   </h3>
 
                   <p
@@ -144,11 +138,9 @@ export default function Hero() {
                   hover:shadow-[var(--shadow-hover)]
                 "
                 onClick={() =>
-                  document
-                    .getElementById("projects")
-                    ?.scrollIntoView({
-                      behavior: "smooth",
-                    })
+                  document.getElementById("projects")?.scrollIntoView({
+                    behavior: "smooth",
+                  })
                 }
               >
                 View Projects
@@ -156,9 +148,7 @@ export default function Hero() {
 
               <Button
                 variant="outline"
-                onClick={() =>
-                  window.open(profile.resume, "_blank")
-                }
+                onClick={() => window.open(profile.resume, "_blank")}
               >
                 Download CV
               </Button>
@@ -167,10 +157,7 @@ export default function Hero() {
 
           {/* Right */}
 
-          <motion.div
-            variants={slideRight}
-            className="flex justify-center"
-          >
+          <motion.div variants={slideRight} className="flex justify-center">
             <DeveloperCard />
           </motion.div>
         </motion.div>

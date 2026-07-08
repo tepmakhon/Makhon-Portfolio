@@ -58,27 +58,19 @@ const icons = [
 export default function FloatingTechIcons() {
   return (
     <>
-      {icons.map(
-        (
-          {
-            Icon,
+      {icons.map(({ Icon, delay, ...position }, index) => (
+        <motion.div
+          key={index}
+          animate={{
+            y: [-12, 12, -12],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
             delay,
-            ...position
-          },
-          index
-        ) => (
-          <motion.div
-            key={index}
-            animate={{
-              y: [-12, 12, -12],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              delay,
-              ease: "easeInOut",
-            }}
-            className="
+            ease: "easeInOut",
+          }}
+          className="
               absolute
               hidden
               lg:flex
@@ -88,12 +80,11 @@ export default function FloatingTechIcons() {
               opacity-20
               pointer-events-none
             "
-            style={position}
-          >
-            <Icon size={42} />
-          </motion.div>
-        )
-      )}
+          style={position}
+        >
+          <Icon size={42} />
+        </motion.div>
+      ))}
     </>
   );
 }

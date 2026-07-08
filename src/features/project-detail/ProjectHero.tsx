@@ -1,8 +1,4 @@
-import {
-  FiArrowLeft,
-  FiExternalLink,
-  FiGithub,
-} from "react-icons/fi";
+import { FiArrowLeft, FiExternalLink, FiGithub } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -18,9 +14,7 @@ type Props = {
   project: Project;
 };
 
-export default function ProjectHero({
-  project,
-}: Props) {
+export default function ProjectHero({ project }: Props) {
   const navigate = useNavigate();
 
   return (
@@ -70,11 +64,7 @@ export default function ProjectHero({
 
           {/* Content */}
 
-          <motion.div
-            variants={slideRight}
-            initial="hidden"
-            animate="visible"
-          >
+          <motion.div variants={slideRight} initial="hidden" animate="visible">
             <Badge>{project.category}</Badge>
 
             <h1
@@ -114,9 +104,7 @@ export default function ProjectHero({
             <div className="mt-10 flex flex-wrap gap-4">
               <Button
                 className="flex items-center gap-2"
-                onClick={() =>
-                  window.open(project.github, "_blank")
-                }
+                onClick={() => window.open(project.github, "_blank")}
               >
                 <FiGithub />
                 GitHub
@@ -126,9 +114,7 @@ export default function ProjectHero({
                 <Button
                   variant="outline"
                   className="flex items-center gap-2"
-                  onClick={() =>
-                    window.open(project.demo, "_blank")
-                  }
+                  onClick={() => window.open(project.demo, "_blank")}
                 >
                   <FiExternalLink />
                   Live Demo

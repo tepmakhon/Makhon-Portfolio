@@ -19,10 +19,8 @@ export default function SectionTitle({
     <div
       className={cn(
         "mb-14",
-        align === "center"
-          ? "text-center"
-          : "text-left",
-        className
+        align === "center" ? "text-center" : "text-left",
+        className,
       )}
     >
       {badge && (
@@ -65,9 +63,7 @@ export default function SectionTitle({
             leading-8
             text-[var(--color-muted)]
             `,
-            align === "center"
-              ? "mx-auto max-w-3xl"
-              : "max-w-3xl"
+            align === "center" ? "mx-auto max-w-3xl" : "max-w-3xl",
           )}
         >
           {subtitle}

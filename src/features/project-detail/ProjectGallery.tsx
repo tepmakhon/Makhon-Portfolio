@@ -7,17 +7,12 @@ type Props = {
   images: string[];
 };
 
-export default function ProjectGallery({
-  images,
-}: Props) {
+export default function ProjectGallery({ images }: Props) {
   const [selected, setSelected] = useState<number | null>(null);
   return (
     <section className="pb-20">
       <Container>
-        <SectionTitle
-          title="Gallery"
-          align="left"
-        />
+        <SectionTitle title="Gallery" align="left" />
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {images.map((image, index) => (
@@ -44,20 +39,13 @@ export default function ProjectGallery({
         </div>
       </Container>
       {selected !== null && (
-      <ImageLightbox
+        <ImageLightbox
           images={images}
           current={selected}
           onClose={() => setSelected(null)}
-          onNext={() =>
-            setSelected(
-              (selected + 1) % images.length
-            )
-          }
+          onNext={() => setSelected((selected + 1) % images.length)}
           onPrevious={() =>
-            setSelected(
-              (selected - 1 + images.length) %
-                images.length
-            )
+            setSelected((selected - 1 + images.length) % images.length)
           }
         />
       )}

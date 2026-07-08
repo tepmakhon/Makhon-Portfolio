@@ -67,13 +67,7 @@ export const experiences: Experience[] = [
     company: "Self-Learning",
     description:
       "Studied modern web development from fundamentals, including HTML, CSS, JavaScript, React, backend development, databases, Git, and software engineering principles through hands-on projects.",
-    technologies: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Git",
-      "GitHub",
-    ],
+    technologies: ["HTML", "CSS", "JavaScript", "Git", "GitHub"],
   },
   {
     id: 5,
@@ -82,12 +76,6 @@ export const experiences: Experience[] = [
     company: "Engineering of Technology and Electronic (ETEC)",
     description:
       "Completed Basic and Advanced Python programming and Flask web development training, covering Python fundamentals, object-oriented programming, database integration, and building web applications with Flask.",
-    technologies: [
-      "Python",
-      "Flask",
-      "SQL",
-      "HTML",
-      "CSS",
-    ],
+    technologies: ["Python", "Flask", "SQL", "HTML", "CSS"],
   },
 ];

@@ -7,9 +7,7 @@ type Props = {
   children: ReactNode;
 };
 
-export default function AnimatedSection({
-  children,
-}: Props) {
+export default function AnimatedSection({ children }: Props) {
   return (
     <motion.div
       variants={fadeUp}

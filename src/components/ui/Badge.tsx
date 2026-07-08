@@ -2,9 +2,7 @@ type BadgeProps = {
   children: React.ReactNode;
 };
 
-export default function Badge({
-  children,
-}: BadgeProps) {
+export default function Badge({ children }: BadgeProps) {
   return (
     <span
       className="

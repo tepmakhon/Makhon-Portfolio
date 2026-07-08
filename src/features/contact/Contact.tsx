@@ -9,14 +9,11 @@ export default function Contact() {
       title="Contact"
       subtitle="Let's build something amazing together."
     >
-        <div className="grid gap-10 lg:grid-cols-2">
+      <div className="grid gap-10 lg:grid-cols-2">
+        <ContactInfo />
 
-          <ContactInfo />
-
-          <ContactForm />
-
-        </div>
-
+        <ContactForm />
+      </div>
     </Section>
   );
 }

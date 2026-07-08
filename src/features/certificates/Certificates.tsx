@@ -10,15 +10,11 @@ export default function Certificates() {
       title="Certifications"
       subtitle="Professional certifications and continuous learning achievements."
     >
-
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {certificates.map((certificate) => (
-            <CertificateCard
-              key={certificate.id}
-              certificate={certificate}
-            />
-          ))}
-        </div>
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {certificates.map((certificate) => (
+          <CertificateCard key={certificate.id} certificate={certificate} />
+        ))}
+      </div>
     </Section>
   );
 }

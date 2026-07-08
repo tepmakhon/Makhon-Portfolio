@@ -12,8 +12,7 @@ export const profile = {
   headline:
     "I build modern, scalable, and user-focused web applications using React, TypeScript, Express, PostgreSQL, Prisma, and AI technologies.",
 
-  bio:
-    "Passionate Full Stack Developer who enjoys building modern web applications using React, TypeScript, Express, PostgreSQL, and AI. I enjoy learning new technologies, solving real-world problems, and creating user-friendly digital experiences.",
+  bio: "Passionate Full Stack Developer who enjoys building modern web applications using React, TypeScript, Express, PostgreSQL, and AI. I enjoy learning new technologies, solving real-world problems, and creating user-friendly digital experiences.",
 
   // ========================
   // Education
@@ -73,37 +72,34 @@ export const profile = {
     "Tailwind CSS",
   ],
 
- // ========================
-// Statistics
-// ========================
+  // ========================
+  // Statistics
+  // ========================
 
-stats: [
-  {
-    value: 5,
-    label: "Projects",
-  },
-  {
-    value: 5,
-    label: "Certificates",
-  },
-  {
-    value: 15,
-    label: "Technologies",
-  },
-],
+  stats: [
+    {
+      value: 5,
+      label: "Projects",
+    },
+    {
+      value: 5,
+      label: "Certificates",
+    },
+    {
+      value: 15,
+      label: "Technologies",
+    },
+  ],
 
   // ========================
   // Additional Information
   // ========================
-  
+
   careerGoal:
-  "My goal is to become a professional Full Stack Developer and build scalable software that helps students and businesses.",
+    "My goal is to become a professional Full Stack Developer and build scalable software that helps students and businesses.",
 
   passion:
     "I enjoy learning modern technologies, solving challenging problems, and turning ideas into real applications.",
 
-  languages: [
-    "Khmer",
-    "English"
-  ],
+  languages: ["Khmer", "English"],
 } as const;

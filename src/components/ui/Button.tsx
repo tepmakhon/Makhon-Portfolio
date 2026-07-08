@@ -1,15 +1,11 @@
 import type { ButtonHTMLAttributes } from "react";
 import { cn } from "../../utils/cn";
 
-type ButtonVariant =
-  | "primary"
-  | "secondary"
-  | "outline";
+type ButtonVariant = "primary" | "secondary" | "outline";
 
-type ButtonProps =
-  ButtonHTMLAttributes<HTMLButtonElement> & {
-    variant?: ButtonVariant;
-  };
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: ButtonVariant;
+};
 
 export default function Button({
   variant = "primary",
@@ -23,8 +19,7 @@ export default function Button({
     secondary:
       "bg-[var(--color-secondary)] text-white hover:bg-[var(--color-primary)]",
 
-    outline:
-      `
+    outline: `
       border
       bg-[var(--color-primary-soft)]
       text-[var(--color-primary)]
@@ -47,7 +42,7 @@ export default function Button({
         active:scale-95
         `,
         variants[variant],
-        className
+        className,
       )}
       {...props}
     />

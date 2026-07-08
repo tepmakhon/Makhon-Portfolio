@@ -8,23 +8,15 @@ type Props = {
   projects: Project[];
 };
 
-export default function RelatedProjects({
-  projects,
-}: Props) {
+export default function RelatedProjects({ projects }: Props) {
   return (
     <section className="pb-24">
       <Container>
-        <SectionTitle
-          title="Related Projects"
-          align="left"
-        />
+        <SectionTitle title="Related Projects" align="left" />
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-            />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </Container>

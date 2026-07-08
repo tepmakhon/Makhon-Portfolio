@@ -11,10 +11,7 @@ type Props = {
   next?: Project;
 };
 
-export default function ProjectNavigation({
-  previous,
-  next,
-}: Props) {
+export default function ProjectNavigation({ previous, next }: Props) {
   return (
     <section className="pb-24">
       <Container>
@@ -74,9 +71,7 @@ export default function ProjectNavigation({
                       Next Project
                     </p>
 
-                    <h3 className="mt-1 text-lg font-semibold">
-                      {next.title}
-                    </h3>
+                    <h3 className="mt-1 text-lg font-semibold">{next.title}</h3>
                   </div>
 
                   <FiArrowRight

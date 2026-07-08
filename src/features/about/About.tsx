@@ -1,9 +1,4 @@
-import {
-  FiBookOpen,
-  FiMapPin,
-  FiMail,
-  FiBriefcase,
-} from "react-icons/fi";
+import { FiBookOpen, FiMapPin, FiMail, FiBriefcase } from "react-icons/fi";
 
 import Section from "../../components/layout/Section";
 import QuickFact from "../../components/common/QuickFact";
@@ -12,75 +7,52 @@ import { profile } from "../../data/profile";
 
 export default function About() {
   return (
-      <Section
-        id="about"
-        title="About Me"
-        subtitle="Learn more about my journey, passion, and career goals."
-      >
+    <Section
+      id="about"
+      title="About Me"
+      subtitle="Learn more about my journey, passion, and career goals."
+    >
+      <div className="grid gap-12 lg:grid-cols-2">
+        {/* Left */}
 
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div>
+          <h3 className="mb-6 text-2xl font-bold">My Journey</h3>
 
-          {/* Left */}
+          <p className="leading-8 text-slate-600">{profile.bio}</p>
 
-          <div>
+          <h3 className="mt-10 mb-4 text-xl font-semibold">Passion</h3>
 
-            <h3 className="mb-6 text-2xl font-bold">
-              My Journey
-            </h3>
+          <p className="leading-8 text-slate-600">{profile.passion}</p>
 
-            <p className="leading-8 text-slate-600">
-              {profile.bio}
-            </p>
+          <h3 className="mt-10 mb-4 text-xl font-semibold">Career Goal</h3>
 
-            <h3 className="mt-10 mb-4 text-xl font-semibold">
-              Passion
-            </h3>
-
-            <p className="leading-8 text-slate-600">
-              {profile.passion}
-            </p>
-
-            <h3 className="mt-10 mb-4 text-xl font-semibold">
-              Career Goal
-            </h3>
-
-            <p className="leading-8 text-slate-600">
-              {profile.careerGoal}
-            </p>
-
-          </div>
-
-          {/* Right */}
-
-          <div className="grid gap-5">
-
-            <QuickFact
-              icon={<FiBookOpen />}
-              label="Education"
-              value={`${profile.major} • ${profile.university}`}
-            />
-
-            <QuickFact
-              icon={<FiMapPin />}
-              label="Location"
-              value={profile.location}
-            />
-
-            <QuickFact
-              icon={<FiBriefcase />}
-              label="Availability"
-              value={profile.availableText}
-            />
-
-            <QuickFact
-              icon={<FiMail />}
-              label="Email"
-              value={profile.email}
-            />
-
-          </div>
-
+          <p className="leading-8 text-slate-600">{profile.careerGoal}</p>
         </div>
-      </Section>
+
+        {/* Right */}
+
+        <div className="grid gap-5">
+          <QuickFact
+            icon={<FiBookOpen />}
+            label="Education"
+            value={`${profile.major} • ${profile.university}`}
+          />
+
+          <QuickFact
+            icon={<FiMapPin />}
+            label="Location"
+            value={profile.location}
+          />
+
+          <QuickFact
+            icon={<FiBriefcase />}
+            label="Availability"
+            value={profile.availableText}
+          />
+
+          <QuickFact icon={<FiMail />} label="Email" value={profile.email} />
+        </div>
+      </div>
+    </Section>
   );
 }

@@ -12,16 +12,12 @@ import SEO from "../components/common/SEO";
 export default function ProjectDetail() {
   const { slug } = useParams();
 
-  const project = projects.find(
-    (p) => p.slug === slug
-  );
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
     return (
       <div className="py-40 text-center">
-        <h1 className="text-4xl font-bold">
-          Project Not Found
-        </h1>
+        <h1 className="text-4xl font-bold">Project Not Found</h1>
       </div>
     );
   }
@@ -29,54 +25,35 @@ export default function ProjectDetail() {
     .filter((p) => p.id !== project.id)
     .slice(0, 3);
 
-  const currentIndex = projects.findIndex(
-    (p) => p.id === project.id
-  );
+  const currentIndex = projects.findIndex((p) => p.id === project.id);
 
   const previousProject =
-    currentIndex > 0
-      ? projects[currentIndex - 1]
-      : undefined;
+    currentIndex > 0 ? projects[currentIndex - 1] : undefined;
 
   const nextProject =
-    currentIndex < projects.length - 1
-      ? projects[currentIndex + 1]
-      : undefined;
+    currentIndex < projects.length - 1 ? projects[currentIndex + 1] : undefined;
   return (
-  <>
-    <SEO
-      title={`${project.title} | Tep Makhon`}
-      description={project.shortDescription}
-      image={project.image}
-      url={`https://tepmakhon.dev/projects/${project.slug}`}
-    />
+    <>
+      <SEO
+        title={`${project.title} | Tep Makhon`}
+        description={project.shortDescription}
+        image={project.image}
+        url={`https://tepmakhon.dev/projects/${project.slug}`}
+      />
 
-    <ProjectHero project={project} />
+      <ProjectHero project={project} />
 
-    <ProjectOverview
-      overview={project.overview}
-    />
+      <ProjectOverview overview={project.overview} />
 
-    <ProjectFeatures
-      features={project.features}
-    />
+      <ProjectFeatures features={project.features} />
 
-    <ProjectTechStack
-      technologies={project.technologies}
-    />
+      <ProjectTechStack technologies={project.technologies} />
 
-    <ProjectGallery
-      images={project.images}
-    />
+      <ProjectGallery images={project.images} />
 
-    <RelatedProjects
-      projects={relatedProjects}
-    />
+      <RelatedProjects projects={relatedProjects} />
 
-    <ProjectNavigation
-      previous={previousProject}
-      next={nextProject}
-    />
-  </>
+      <ProjectNavigation previous={previousProject} next={nextProject} />
+    </>
   );
 }

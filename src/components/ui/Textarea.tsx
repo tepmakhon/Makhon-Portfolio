@@ -1,12 +1,8 @@
 import { cn } from "../../utils/cn";
 
-type TextareaProps =
-  React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-export default function Textarea({
-  className,
-  ...props
-}: TextareaProps) {
+export default function Textarea({ className, ...props }: TextareaProps) {
   return (
     <textarea
       className={cn(
@@ -23,7 +19,7 @@ export default function Textarea({
         transition-all
         focus:border-[var(--color-primary)]
         `,
-        className
+        className,
       )}
       {...props}
     />

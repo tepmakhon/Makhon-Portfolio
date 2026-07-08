@@ -1,7 +1,4 @@
-import {
-  FiExternalLink,
-  FiGithub,
-} from "react-icons/fi";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 import { motion } from "framer-motion";
 
@@ -23,9 +20,7 @@ type Props = {
   project: Project;
 };
 
-export default function FeaturedProject({
-  project,
-}: Props) {
+export default function FeaturedProject({ project }: Props) {
   return (
     <MotionCard>
       <motion.section
@@ -43,13 +38,9 @@ export default function FeaturedProject({
         "
       >
         <div className="grid lg:grid-cols-2">
-
           {/* Image */}
 
-          <motion.div
-            variants={slideLeft}
-            className="overflow-hidden"
-          >
+          <motion.div variants={slideLeft} className="overflow-hidden">
             <motion.img
               src={project.image}
               alt={project.title}
@@ -87,10 +78,7 @@ export default function FeaturedProject({
               {project.category}
             </motion.p>
 
-            <motion.h2
-              variants={fadeUp}
-              className="mt-4 text-4xl font-bold"
-            >
+            <motion.h2 variants={fadeUp} className="mt-4 text-4xl font-bold">
               {project.title}
             </motion.h2>
 
@@ -112,10 +100,7 @@ export default function FeaturedProject({
               className="mt-8 flex flex-wrap gap-2"
             >
               {project.technologies.map((tech) => (
-                <motion.div
-                  key={tech}
-                  variants={fadeUp}
-                >
+                <motion.div key={tech} variants={fadeUp}>
                   <Badge>{tech}</Badge>
                 </motion.div>
               ))}
@@ -139,9 +124,7 @@ export default function FeaturedProject({
                 <Button
                   variant="outline"
                   className="flex items-center gap-2"
-                  onClick={() =>
-                    window.open(project.demo)
-                  }
+                  onClick={() => window.open(project.demo)}
                 >
                   <FiExternalLink />
                   Live Demo

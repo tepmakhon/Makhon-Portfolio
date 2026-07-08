@@ -19,9 +19,7 @@ export default function ContactForm() {
   });
 
   function handleChange(
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     setForm({
       ...form,
@@ -29,17 +27,10 @@ export default function ContactForm() {
     });
   }
 
-  async function handleSubmit(
-    e: React.FormEvent
-  ) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    if (
-      !form.name ||
-      !form.email ||
-      !form.subject ||
-      !form.message
-    ) {
+    if (!form.name || !form.email || !form.subject || !form.message) {
       alert("Please fill in all fields.");
       return;
     }
@@ -59,10 +50,7 @@ export default function ContactForm() {
   return (
     <MotionCard>
       <Card>
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-6"
-        >
+        <form onSubmit={handleSubmit} className="space-y-6">
           <Input
             name="name"
             placeholder="Your Name"
@@ -93,14 +81,8 @@ export default function ContactForm() {
             onChange={handleChange}
           />
 
-          <Button
-            type="submit"
-            disabled={loading}
-            className="w-full"
-          >
-            {loading
-              ? "Sending..."
-              : "Send Message"}
+          <Button type="submit" disabled={loading} className="w-full">
+            {loading ? "Sending..." : "Send Message"}
           </Button>
         </form>
       </Card>

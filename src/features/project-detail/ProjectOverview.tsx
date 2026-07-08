@@ -12,9 +12,7 @@ type Props = {
   overview: string;
 };
 
-export default function ProjectOverview({
-  overview,
-}: Props) {
+export default function ProjectOverview({ overview }: Props) {
   return (
     <section className="pb-20">
       <Container>

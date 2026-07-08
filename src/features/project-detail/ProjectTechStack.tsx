@@ -8,18 +8,13 @@ import SectionTitle from "../../components/ui/SectionTitle";
 
 import MotionCard from "../../components/common/MotionCard";
 
-import {
-  fadeUp,
-  staggerContainer,
-} from "../../animations";
+import { fadeUp, staggerContainer } from "../../animations";
 
 type Props = {
   technologies: string[];
 };
 
-export default function ProjectTechStack({
-  technologies,
-}: Props) {
+export default function ProjectTechStack({ technologies }: Props) {
   return (
     <section className="pb-20">
       <Container>
@@ -40,10 +35,7 @@ export default function ProjectTechStack({
               className="flex flex-wrap gap-4"
             >
               {technologies.map((tech) => (
-                <motion.div
-                  key={tech}
-                  variants={fadeUp}
-                >
+                <motion.div key={tech} variants={fadeUp}>
                   <div
                     className="
                       flex
@@ -58,9 +50,7 @@ export default function ProjectTechStack({
                       shadow-sm
                     "
                   >
-                    <FiCode
-                      className="text-[var(--color-primary)]"
-                    />
+                    <FiCode className="text-[var(--color-primary)]" />
 
                     <Badge>{tech}</Badge>
                   </div>

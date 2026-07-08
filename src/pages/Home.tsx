@@ -13,10 +13,10 @@ export default function Home() {
   return (
     <>
       <SEO
-          title="Tep Makhon | Full Stack Developer"
-          description="Portfolio of Tep Makhon, Full Stack Developer specializing in React, TypeScript, Express, PostgreSQL, Prisma, and modern web development."
-          url="https://makhon-portfolio.vercel.app"
-        />
+        title="Tep Makhon | Full Stack Developer"
+        description="Portfolio of Tep Makhon, Full Stack Developer specializing in React, TypeScript, Express, PostgreSQL, Prisma, and modern web development."
+        url="https://makhon-portfolio.vercel.app"
+      />
 
       <Hero />
       <About />

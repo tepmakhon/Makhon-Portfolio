@@ -34,11 +34,6 @@ export const educations: Education[] = [
     location: "Takeo Province, Cambodia",
     description:
       "Completed high school education and developed a strong interest in programming and technology.",
-    courses: [
-      "Mathematics",
-      "Physics",
-      "English",
-      "Computer Basics",
-    ],
+    courses: ["Mathematics", "Physics", "English", "Computer Basics"],
   },
 ];

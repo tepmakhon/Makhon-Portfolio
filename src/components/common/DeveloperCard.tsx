@@ -1,9 +1,4 @@
-import {
-  FiGithub,
-  FiLinkedin,
-  FiMail,
-  FiMapPin,
-} from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail, FiMapPin } from "react-icons/fi";
 
 import { motion } from "framer-motion";
 
@@ -11,10 +6,7 @@ import { profile } from "../../data/profile";
 import Badge from "../ui/Badge";
 import profileImage from "../../assets/images/profile.webp";
 
-import {
-  fadeUp,
-  staggerContainer,
-} from "../../animations";
+import { fadeUp, staggerContainer } from "../../animations";
 
 export default function DeveloperCard() {
   return (
@@ -131,10 +123,7 @@ export default function DeveloperCard() {
 
         {/* Status */}
 
-        <motion.div
-          variants={fadeUp}
-          className="mt-6"
-        >
+        <motion.div variants={fadeUp} className="mt-6">
           <Badge>{profile.availableText}</Badge>
         </motion.div>
 
@@ -161,16 +150,11 @@ export default function DeveloperCard() {
             gap-2
           "
         >
-          {profile.technologies
-            .slice(0, 6)
-            .map((tech) => (
-              <motion.div
-                key={tech}
-                variants={fadeUp}
-              >
-                <Badge>{tech}</Badge>
-              </motion.div>
-            ))}
+          {profile.technologies.slice(0, 6).map((tech) => (
+            <motion.div key={tech} variants={fadeUp}>
+              <Badge>{tech}</Badge>
+            </motion.div>
+          ))}
         </motion.div>
 
         {/* Divider */}

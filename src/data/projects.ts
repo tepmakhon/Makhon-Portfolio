@@ -39,14 +39,9 @@ export const projects: Project[] = [
 
     image: portfolioImage,
 
-    images: [
-      portfolioImage,
-      portfolioImage,
-      portfolioImage,
-    ],
+    images: [portfolioImage, portfolioImage, portfolioImage],
 
-    github:
-      "https://github.com/tepmakhon/Makhon-Portfolio",
+    github: "https://github.com/tepmakhon/Makhon-Portfolio",
 
     demo: "",
 
@@ -77,24 +72,13 @@ export const projects: Project[] = [
       "Role Based Access Control",
     ],
 
-    technologies: [
-      "React",
-      "Express",
-      "Prisma",
-      "PostgreSQL",
-      "Tailwind CSS",
-    ],
+    technologies: ["React", "Express", "Prisma", "PostgreSQL", "Tailwind CSS"],
 
     image: ruppImage,
 
-    images: [
-      ruppImage,
-      ruppImage,
-      ruppImage,
-    ],
+    images: [ruppImage, ruppImage, ruppImage],
 
-    github:
-      "https://github.com/tepmakhon/rupp-student-conference-platform",
+    github: "https://github.com/tepmakhon/rupp-student-conference-platform",
 
     demo: "",
 
@@ -110,8 +94,7 @@ export const projects: Project[] = [
 
     category: "University Group Project",
 
-    shortDescription:
-      "AI and IoT based classroom management platform.",
+    shortDescription: "AI and IoT based classroom management platform.",
 
     overview:
       "A smart classroom system that supports attendance using QR Code and Face Recognition, AI monitoring, classroom management, and IoT integration using Raspberry Pi.",
@@ -135,14 +118,9 @@ export const projects: Project[] = [
 
     image: smartClassroomImage,
 
-    images: [
-      smartClassroomImage,
-      smartClassroomImage,
-      smartClassroomImage,
-    ],
+    images: [smartClassroomImage, smartClassroomImage, smartClassroomImage],
 
-    github:
-      "https://github.com/TunSopheak/Smart-Classroom-AI-IoT",
+    github: "https://github.com/TunSopheak/Smart-Classroom-AI-IoT",
 
     demo: "",
 

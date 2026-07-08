@@ -75,13 +75,9 @@ export default function Navbar() {
                 ${scrolled ? "text-lg" : "text-xl"}
               `}
             >
-              <span className="text-[var(--color-primary)]">
-                Tep
-              </span>
+              <span className="text-[var(--color-primary)]">Tep</span>
 
-              <span className="text-[var(--color-text)]">
-                Makhon
-              </span>
+              <span className="text-[var(--color-text)]">Makhon</span>
             </button>
 
             {/* Desktop Navigation */}
@@ -93,9 +89,7 @@ export default function Navbar() {
                 return (
                   <li key={item.href}>
                     <button
-                      onClick={() =>
-                        handleNavigation(item.href)
-                      }
+                      onClick={() => handleNavigation(item.href)}
                       className={`
                         relative
                         py-2
@@ -139,9 +133,7 @@ export default function Navbar() {
 
               <Button
                 className="hidden lg:block"
-                onClick={() =>
-                  window.open("/resume.pdf", "_blank")
-                }
+                onClick={() => window.open("/resume.pdf", "_blank")}
               >
                 Download CV
               </Button>
@@ -158,10 +150,7 @@ export default function Navbar() {
         </Container>
       </header>
 
-      <MobileMenu
-        open={open}
-        onClose={() => setOpen(false)}
-      />
+      <MobileMenu open={open} onClose={() => setOpen(false)} />
     </>
   );
 }

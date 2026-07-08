@@ -9,10 +9,7 @@ type Props = {
   onClose: () => void;
 };
 
-export default function MobileMenu({
-  open,
-  onClose,
-}: Props) {
+export default function MobileMenu({ open, onClose }: Props) {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -50,9 +47,7 @@ export default function MobileMenu({
       {/* Header */}
 
       <div className="flex items-center justify-between border-b border-[var(--color-border)] p-6">
-        <h2 className="text-xl font-bold text-[var(--color-text)]">
-          Menu
-        </h2>
+        <h2 className="text-xl font-bold text-[var(--color-text)]">Menu</h2>
 
         <button
           onClick={onClose}

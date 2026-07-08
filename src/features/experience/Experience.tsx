@@ -10,15 +10,11 @@ export default function Experience() {
       title="Experience"
       subtitle="My learning journey and projects."
     >
-
-        <div className="space-y-6">
-          {experiences.map((experience) => (
-            <ExperienceCard
-              key={experience.id}
-              experience={experience}
-            />
-          ))}
-        </div>
+      <div className="space-y-6">
+        {experiences.map((experience) => (
+          <ExperienceCard key={experience.id} experience={experience} />
+        ))}
+      </div>
     </Section>
   );
 }

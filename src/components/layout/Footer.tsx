@@ -12,9 +12,7 @@ export default function Footer() {
     >
       <Container>
         <div className="text-center">
-          <h2 className="font-semibold text-[var(--color-text)]">
-            Tep Makhon
-          </h2>
+          <h2 className="font-semibold text-[var(--color-text)]">Tep Makhon</h2>
 
           <p className="mt-2 text-sm text-[var(--color-muted)]">
             Full Stack Developer

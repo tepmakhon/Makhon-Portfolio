@@ -1,8 +1,4 @@
-import {
-  FiGithub,
-  FiLinkedin,
-  FiMail,
-} from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 
 import { profile } from "../../data/profile";
 
