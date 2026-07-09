@@ -11,7 +11,7 @@ import useScroll from "../../hooks/useScroll";
 import useActiveSection from "../../hooks/useActiveSection";
 import ThemeToggle from "../common/ThemeToggle";
 import { profile } from "../../data/profile";
-
+import { FiDownload } from "react-icons/fi";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
@@ -136,7 +136,7 @@ export default function Navbar() {
                   flex
                   items-center
                   gap-2
-                  ounded-lg
+                  rounded-lg
                   border
                   border-[var(--color-border)]
                   bg-[var(--color-surface)]
@@ -144,7 +144,7 @@ export default function Navbar() {
                   py-3
                   text-sm
                   font-medium
-                  ext-[var(--color-text)]
+                  text-[var(--color-text)]
                   shadow-[var(--shadow-card)]
                   transition-shadow
                   hover:shadow-[var(--shadow-hover)]
@@ -152,6 +152,7 @@ export default function Navbar() {
               href={profile.resume}
               download
               >
+                <FiDownload size={18} />
                   Download CV
               </a>
 

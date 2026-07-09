@@ -16,6 +16,7 @@ import {
 
 import HeroBackground from "./HeroBackground";
 import FloatingTechIcons from "./FloatingTechIcons";
+import { FiDownload } from "react-icons/fi";
 export default function Hero() {
   return (
     <section
@@ -51,7 +52,7 @@ export default function Hero() {
                 text-[var(--color-primary)]
               "
             >
-              Hello, I'm
+              👋 Hello, I'm
             </p>
 
             <h1
@@ -167,6 +168,7 @@ export default function Hero() {
                 href={profile.resume}
                 download
               >
+                <FiDownload size={18} />
                 Download CV
               </a>
             </motion.div>

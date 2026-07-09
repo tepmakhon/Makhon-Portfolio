@@ -1,4 +1,4 @@
-import { FiX } from "react-icons/fi";
+import { FiDownload, FiX } from "react-icons/fi";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { profile } from "../../data/profile";
@@ -101,6 +101,7 @@ export default function MobileMenu({ open, onClose }: Props) {
             href={profile.resume}
             download
           >
+            <FiDownload size={18} />
             Download CV
           </a>
       </nav>

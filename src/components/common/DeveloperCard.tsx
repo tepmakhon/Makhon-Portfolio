@@ -127,7 +127,10 @@ export default function DeveloperCard() {
         {/* Status */}
 
         <motion.div variants={fadeUp} className="mt-6">
-          <Badge>{profile.availableText}</Badge>
+          <span className="h-2.5 w-2.5 rounded-full bg-green-500 animate-pulse" />
+          <Badge>
+              {profile.availableText}
+          </Badge>
         </motion.div>
 
         {/* Divider */}
@@ -180,6 +183,7 @@ export default function DeveloperCard() {
         >
           <motion.a
             href={profile.github}
+            aria-label="GitHub Profile"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{
@@ -203,6 +207,7 @@ export default function DeveloperCard() {
 
           <motion.a
             href={profile.linkedin}
+            aria-label="LinkedIn Profile"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{
@@ -226,6 +231,7 @@ export default function DeveloperCard() {
 
           <motion.a
             href={`mailto:${profile.email}`}
+            aria-label="Send Email"
             whileHover={{
               scale: 1.2,
               y: -4,
