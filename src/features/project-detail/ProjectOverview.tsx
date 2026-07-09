@@ -28,7 +28,7 @@ export default function ProjectOverview({ overview }: Props) {
             <motion.p
               variants={fadeUp}
               initial="hidden"
-              whileInView="visible"
+              animate="visible"
               viewport={{ once: true }}
               className="
                 max-w-4xl

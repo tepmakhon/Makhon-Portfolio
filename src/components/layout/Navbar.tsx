@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import Button from "../ui/Button";
 import Container from "./Container";
 import MobileMenu from "./MobileMenu";
 
@@ -11,6 +10,7 @@ import { navigation } from "../../constants/navigation";
 import useScroll from "../../hooks/useScroll";
 import useActiveSection from "../../hooks/useActiveSection";
 import ThemeToggle from "../common/ThemeToggle";
+import { profile } from "../../data/profile";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -131,12 +131,29 @@ export default function Navbar() {
             <div className="flex items-center gap-4">
               <ThemeToggle />
 
-              <Button
-                className="hidden lg:block"
-                onClick={() => window.open("/resume.pdf", "_blank")}
+              <a
+                className="
+                  flex
+                  items-center
+                  gap-2
+                  ounded-lg
+                  border
+                  border-[var(--color-border)]
+                  bg-[var(--color-surface)]
+                  px-6
+                  py-3
+                  text-sm
+                  font-medium
+                  ext-[var(--color-text)]
+                  shadow-[var(--shadow-card)]
+                  transition-shadow
+                  hover:shadow-[var(--shadow-hover)]
+                "
+              href={profile.resume}
+              download
               >
-                Download CV
-              </Button>
+                  Download CV
+              </a>
 
               <button
                 onClick={() => setOpen(true)}

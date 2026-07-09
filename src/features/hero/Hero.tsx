@@ -37,7 +37,7 @@ export default function Hero() {
           className="grid items-center gap-24 lg:grid-cols-2"
           variants={staggerContainer}
           initial="hidden"
-          whileInView="visible"
+          animate="visible"
           viewport={{ once: true }}
         >
           {/* Left */}
@@ -146,12 +146,29 @@ export default function Hero() {
                 View Projects
               </Button>
 
-              <Button
-                variant="outline"
-                onClick={() => window.open(profile.resume, "_blank")}
+              <a
+                className="
+                  flex
+                  items-center
+                  gap-2
+                  rounded-lg
+                  border
+                  border-[var(--color-border)]
+                  bg-[var(--color-surface)]
+                  px-6
+                  py-3
+                  text-sm
+                  font-medium
+                  text-[var(--color-text)]
+                  shadow-[var(--shadow-card)]
+                  transition-shadow
+                  hover:shadow-[var(--shadow-hover)]
+                "
+                href={profile.resume}
+                download
               >
                 Download CV
-              </Button>
+              </a>
             </motion.div>
           </motion.div>
 

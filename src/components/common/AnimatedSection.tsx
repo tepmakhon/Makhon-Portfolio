@@ -12,7 +12,7 @@ export default function AnimatedSection({ children }: Props) {
     <motion.div
       variants={fadeUp}
       initial="hidden"
-      whileInView="visible"
+      animate="visible"
       viewport={{
         once: true,
         amount: 0.2,

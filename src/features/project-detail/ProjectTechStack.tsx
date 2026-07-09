@@ -30,7 +30,7 @@ export default function ProjectTechStack({ technologies }: Props) {
             <motion.div
               variants={staggerContainer}
               initial="hidden"
-              whileInView="visible"
+              animate="visible"
               viewport={{ once: true }}
               className="flex flex-wrap gap-4"
             >

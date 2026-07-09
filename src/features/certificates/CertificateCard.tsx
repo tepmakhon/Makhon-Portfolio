@@ -17,6 +17,8 @@ export default function CertificateCard({ certificate }: Props) {
         <img
           src={certificate.image}
           alt={certificate.title}
+          loading="lazy"
+          decoding="async"
           className="h-56 w-full object-cover"
         />
 

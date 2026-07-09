@@ -29,7 +29,7 @@ export default function ProjectFeatures({ features }: Props) {
               <motion.div
                 variants={fadeUp}
                 initial="hidden"
-                whileInView="visible"
+                animate="visible"
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
               >

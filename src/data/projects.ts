@@ -39,7 +39,7 @@ export const projects: Project[] = [
 
     image: portfolioImage,
 
-    images: [portfolioImage, portfolioImage, portfolioImage],
+    images: [portfolioImage],//we can add more images here
 
     github: "https://github.com/tepmakhon/Makhon-Portfolio",
 
@@ -76,7 +76,7 @@ export const projects: Project[] = [
 
     image: ruppImage,
 
-    images: [ruppImage, ruppImage, ruppImage],
+    images: [ruppImage],//we can add more images here
 
     github: "https://github.com/tepmakhon/rupp-student-conference-platform",
 
@@ -118,7 +118,7 @@ export const projects: Project[] = [
 
     image: smartClassroomImage,
 
-    images: [smartClassroomImage, smartClassroomImage, smartClassroomImage],
+    images: [smartClassroomImage],//we can add more images here
 
     github: "https://github.com/TunSopheak/Smart-Classroom-AI-IoT",
 

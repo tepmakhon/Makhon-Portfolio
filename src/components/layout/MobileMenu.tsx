@@ -1,7 +1,7 @@
 import { FiX } from "react-icons/fi";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import Button from "../ui/Button";
+import { profile } from "../../data/profile";
 import { navigation } from "../../constants/navigation";
 
 type Props = {
@@ -80,15 +80,29 @@ export default function MobileMenu({ open, onClose }: Props) {
           </button>
         ))}
 
-        <Button
-          className="mt-8"
-          onClick={() => {
-            onClose();
-            window.open("/resume.pdf", "_blank");
-          }}
-        >
-          Download CV
-        </Button>
+          <a
+            className="
+              flex
+              items-center
+              gap-2
+              ounded-lg
+              border
+              border-[var(--color-border)]
+              bg-[var(--color-surface)]
+              px-6
+              py-3
+              text-sm
+              font-medium
+              ext-[var(--color-text)]
+              shadow-[var(--shadow-card)]
+              transition-shadow
+              hover:shadow-[var(--shadow-hover)]
+            "
+            href={profile.resume}
+            download
+          >
+            Download CV
+          </a>
       </nav>
     </div>
   );

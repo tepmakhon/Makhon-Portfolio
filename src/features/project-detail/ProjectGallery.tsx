@@ -17,10 +17,12 @@ export default function ProjectGallery({ images }: Props) {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {images.map((image, index) => (
             <img
-              onClick={() => setSelected(index)}
               key={index}
               src={image}
               alt={`Screenshot ${index + 1}`}
+              loading="lazy"
+              decoding="async"
+              onClick={() => setSelected(index)}
               className="
                 cursor-pointer
                 h-64

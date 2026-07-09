@@ -56,6 +56,9 @@ export default function DeveloperCard() {
         <motion.img
           src={profileImage}
           alt={profile.fullName}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           whileHover={{
             scale: 1.08,
           }}

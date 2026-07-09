@@ -26,7 +26,7 @@ export default function FeaturedProject({ project }: Props) {
       <motion.section
         variants={staggerContainer}
         initial="hidden"
-        whileInView="visible"
+        animate="visible"
         viewport={{ once: true }}
         className="
           overflow-hidden
