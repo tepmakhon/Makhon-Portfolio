@@ -15,10 +15,10 @@ export default function CertificateCard({ certificate }: Props) {
     <MotionCard>
       <Card className="overflow-hidden p-0">
         <img
-          src={certificate.image}
-          alt={certificate.title}
           loading="lazy"
           decoding="async"
+          src={certificate.image}
+          alt={certificate.title}
           className="h-56 w-full object-cover"
         />
 

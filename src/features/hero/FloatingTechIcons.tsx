@@ -82,7 +82,11 @@ export default function FloatingTechIcons() {
             "
           style={position}
         >
-          <Icon size={42} />
+          <Icon
+              size={42}
+              aria-hidden="true"
+              focusable="false"
+          />
         </motion.div>
       ))}
     </>
