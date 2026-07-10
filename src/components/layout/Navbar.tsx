@@ -128,12 +128,13 @@ export default function Navbar() {
 
             {/* Right Side */}
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <ThemeToggle />
-
               <a
+                href={profile.resume}
+                download
                 className="
-                  flex
+                  hidden lg:flex
                   items-center
                   gap-2
                   rounded-lg
@@ -146,14 +147,14 @@ export default function Navbar() {
                   font-medium
                   text-[var(--color-text)]
                   shadow-[var(--shadow-card)]
-                  transition-shadow
+                  transition-all
+                  duration-300
+                  hover:border-[var(--color-primary)]
                   hover:shadow-[var(--shadow-hover)]
                 "
-              href={profile.resume}
-              download
               >
                 <FiDownload size={18} />
-                  Download CV
+                Download CV
               </a>
 
               <button

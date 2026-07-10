@@ -60,19 +60,23 @@ export default function MobileMenu({ open, onClose }: Props) {
 
       {/* Navigation */}
 
-      <nav className="flex flex-col p-6">
+      <nav className="flex flex-col gap-2 p-6">
         {navigation.map((item) => (
           <button
             key={item.href}
             onClick={() => handleNavigation(item.href)}
             className="
+              rounded-lg
               border-b
               border-[var(--color-border)]
+              px-3
               py-4
               text-left
               text-lg
               text-[var(--color-text)]
-              transition-colors
+              transition-all
+              duration-200
+              hover:bg-[var(--color-primary)]/10
               hover:text-[var(--color-primary)]
             "
           >
@@ -81,27 +85,28 @@ export default function MobileMenu({ open, onClose }: Props) {
         ))}
 
           <a
-            className="
-              flex
-              items-center
-              gap-2
-              ounded-lg
-              border
-              border-[var(--color-border)]
-              bg-[var(--color-surface)]
-              px-6
-              py-3
-              text-sm
-              font-medium
-              ext-[var(--color-text)]
-              shadow-[var(--shadow-card)]
-              transition-shadow
-              hover:shadow-[var(--shadow-hover)]
-            "
             href={profile.resume}
             download
+            className="
+              mt-8
+              flex
+              w-full
+              items-center
+              justify-center
+              gap-3
+              rounded-xl
+              bg-[var(--color-primary)]
+              px-5
+              py-4
+              font-semibold
+              text-white
+              transition-all
+              duration-300
+              hover:opacity-90
+              active:scale-95
+            "
           >
-            <FiDownload size={18} />
+            <FiDownload size={20} />
             Download CV
           </a>
       </nav>
