@@ -3,13 +3,39 @@
 A modern, responsive, and high-performance developer portfolio built with React, TypeScript, Vite, and Tailwind CSS to showcase my projects, technical skills, certifications, and experience.
 
 ![Portfolio Preview](./src/assets/images/projects/portfolio.webp)
-
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-06B6D4?logo=tailwindcss)
+![License](https://img.shields.io/badge/License-MIT-green)
 ---
 
 ## 🌐 Live Demo
 
 > https://tepmakhon-portfolio.vercel.app
 
+## 📷 Screenshots
+
+### Home
+
+![Home](public/screenshots/home.png)
+
+### Projects
+
+![Projects](public/screenshots/projects.png)
+
+### Project Detail
+
+![Project-Detail](public/screenshots/project-detail.png)
+
+
+### Certificates
+
+![Certificates](public/screenshots/certificates.png)
+
+### Contact
+
+![Contact](public/screenshots/contact.png)
 ---
 
 ## ✨ Features
