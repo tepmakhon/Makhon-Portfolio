@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 import {
   SiReact,
@@ -54,38 +54,45 @@ const icons = [
     delay: 6,
   },
 ];
-
 export default function FloatingTechIcons() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <>
       {icons.map(({ Icon, delay, ...position }, index) => (
         <motion.div
           key={index}
-          animate={{
-            y: [-12, 12, -12],
-          }}
+          style={position}
+          className="
+            absolute
+            hidden
+            lg:flex
+            items-center
+            justify-center
+            text-[var(--color-primary)]
+            opacity-20
+            pointer-events-none
+            select-none
+            will-change-transform
+          "
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  y: [-12, 12, -12],
+                }
+          }
           transition={{
             duration: 4,
-            repeat: Infinity,
+            repeat: shouldReduceMotion ? 0 : Infinity,
             delay,
             ease: "easeInOut",
           }}
-          className="
-              absolute
-              hidden
-              lg:flex
-              items-center
-              justify-center
-              text-[var(--color-primary)]
-              opacity-20
-              pointer-events-none
-            "
-          style={position}
         >
           <Icon
-              size={42}
-              aria-hidden="true"
-              focusable="false"
+            size={42}
+            aria-hidden="true"
+            focusable="false"
           />
         </motion.div>
       ))}

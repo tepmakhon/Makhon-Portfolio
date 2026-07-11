@@ -45,8 +45,8 @@ export default function Navbar() {
           duration-300
           ${
             scrolled
-              ? "border-b border-[var(--color-border)] bg-[var(--color-surface)]/95 shadow-lg backdrop-blur"
-              : "bg-[var(--color-surface)]/80 backdrop-blur"
+              ? "border-b border-[var(--color-border)] bg-[var(--color-surface)]/95 shadow-lg"
+              : "bg-[var(--color-surface)]/80"
           }
         `}
       >
