@@ -21,6 +21,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      aria-labelledby="hero-title"
       className="
         relative
         isolate
@@ -39,7 +40,7 @@ export default function Hero() {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true,amount: 0.2 }}
         >
           {/* Left */}
 
@@ -52,10 +53,11 @@ export default function Hero() {
                 text-[var(--color-primary)]
               "
             >
-              👋 Hello, I'm
+              Welcome, I'm
             </p>
 
             <h1
+              id="hero-title"
               className="
                 mt-4
                 text-5xl
@@ -131,9 +133,10 @@ export default function Hero() {
 
             <motion.div
               variants={fadeUp}
-              className="mt-12 flex flex-wrap gap-4"
+              className="mt-12 flex flex-wrap gap-4 sm:flex-row"
             >
               <Button
+                type="button"
                 className="
                   shadow-[var(--shadow-card)]
                   hover:shadow-[var(--shadow-hover)]
@@ -144,10 +147,12 @@ export default function Hero() {
                   })
                 }
               >
-                View Projects
+                Explore Projects
               </Button>
 
               <a
+                aria-label="Download my CV"
+                title="Download CV"
                 className="
                   flex
                   items-center
@@ -168,7 +173,7 @@ export default function Hero() {
                 href={profile.resume}
                 download
               >
-                <FiDownload size={18} />
+                <FiDownload size={18} aria-hidden="true"/>
                 Download CV
               </a>
             </motion.div>
