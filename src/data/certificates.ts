@@ -5,10 +5,10 @@ import Python2 from "../assets/images/certificates/python2.webp";
 import English1 from "../assets/images/certificates/english1.webp";
 import English2 from "../assets/images/certificates/english2.webp";
 import Html from "../assets/images/certificates/html.webp";
-import CSS from "../assets/images/certificates/css.webp";
+import CSS from "../assets/images/certificates/CSS.webp";
 import Javascript1 from "../assets/images/certificates/javascript1.webp";
-import Javascript2 from "../assets/images/certificates/javascript2.webp";
-import Mooc from "../assets/images/certificates/mooc.webp";
+import Javascript2 from "../assets/images/certificates/Javascript2.webp";
+import Mooc from "../assets/images/certificates/Mooc.webp";
 import Etec from "../assets/images/certificates/etec.webp";
 export const certificates: Certificate[] = [
   {
