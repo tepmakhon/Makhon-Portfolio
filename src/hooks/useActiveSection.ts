@@ -15,26 +15,24 @@ export default function useActiveSection() {
   const [active, setActive] = useState("hero");
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
-        });
-      },
-      {
-        threshold: 0.4,
-      },
-    );
+    const onScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight * 0.35;
 
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
 
-      if (el) observer.observe(el);
-    });
+        if (section && scrollPosition >= section.offsetTop) {
+          setActive(sections[i]);
+          break;
+        }
+      }
+    };
 
-    return () => observer.disconnect();
+    window.addEventListener("scroll", onScroll);
+
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return active;
