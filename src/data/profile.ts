@@ -6,13 +6,15 @@ export const profile = {
   firstName: "Tep",
   lastName: "Makhon",
   fullName: "Tep Makhon",
+  username: "tepmakhon",
+  photo: "/images/tep-makhon.webp",
 
   title: "Full-Stack Developer",
 
   headline:
     "I'm Tep Makhon, a fourth-year Computer Science student at RUPP focused on full-stack web development, REST APIs, and practical software solutions.",
 
-  bio: "I study Computer Science at the Royal University of Phnom Penh and build web applications with React, TypeScript, Express, and PostgreSQL. My projects help me practice turning a problem into a usable interface, an API, and a database.",
+  bio: "I’m Tep Makhon, a full-stack developer and fourth-year Computer Science student at the Royal University of Phnom Penh (RUPP), Cambodia. I build React and TypeScript interfaces, Node.js and Express REST APIs, and PostgreSQL databases. My university and personal projects help me turn practical problems into usable software.",
 
   // ========================
   // Education

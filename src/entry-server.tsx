@@ -8,7 +8,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./context/ThemeContext";
 import { projects } from "./data/projects";
-import { SITE_URL } from "./data/site";
+import { SITE_URL, GOOGLE_SITE_VERIFICATION } from "./data/site";
 export const origin = SITE_URL;
 export const paths = [
   "/",
@@ -30,5 +30,9 @@ export function render(path: string) {
   // Inline JSON-LD stays in the body so client hydration sees the same tree.
   const headTags = /<title[^>]*>[\s\S]*?<\/title>|<meta\b[^>]*>|<link\b[^>]*>/g;
   const head = (markup.match(headTags) ?? []).join("");
-  return { html: markup.replace(headTags, ""), head };
+  return {
+    html: markup.replace(headTags, ""),
+    head,
+    googleVerification: GOOGLE_SITE_VERIFICATION,
+  };
 }

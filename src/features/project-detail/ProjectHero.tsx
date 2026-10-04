@@ -7,6 +7,20 @@ export default function ProjectHero({ project }: { project: Project }) {
   return (
     <section>
       <Container>
+        <nav
+          aria-label="Breadcrumb"
+          className="mb-3 text-sm text-[var(--color-muted)]"
+        >
+          <ol className="flex flex-wrap items-center gap-2">
+            <li>
+              <Link to="/" className="hover:underline">
+                Tep Makhon
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">{project.title}</li>
+          </ol>
+        </nav>
         <Link className="link-text mb-8" to="/#projects">
           <FiArrowLeft aria-hidden="true" /> Back to Projects
         </Link>

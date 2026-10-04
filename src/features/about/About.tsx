@@ -9,8 +9,8 @@ export default function About() {
   return (
     <Section
       id="about"
-      title="About Me"
-      subtitle="Learn more about my journey, passion, and career goals."
+      title="About Tep Makhon"
+      subtitle="Full-stack development, React interfaces, and REST APIs — learning through practical software projects."
     >
       <div className="grid gap-12 lg:grid-cols-2">
         {/* Left */}

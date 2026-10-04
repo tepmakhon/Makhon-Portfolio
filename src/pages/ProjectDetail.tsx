@@ -32,7 +32,8 @@ export default function ProjectDetail() {
     <>
       <SEO
         title={`${project.title} | Tep Makhon`}
-        description={project.shortDescription}
+        description={`${project.shortDescription} Explore the technology, features, and project context in Tep Makhon’s portfolio.`}
+        project={project}
         image={project.image}
         url={`/projects/${project.slug}`}
       />

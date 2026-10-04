@@ -9,7 +9,6 @@ import Container from "../../components/layout/Container";
 import { profile } from "../../data/profile";
 import { projects } from "../../data/projects";
 import { certificates } from "../../data/certificates";
-import portrait from "../../assets/images/profile.webp";
 
 export default function Hero() {
   return (
@@ -17,8 +16,11 @@ export default function Hero() {
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[1.35fr_1fr] lg:gap-20">
           <div>
-            <p className="eyebrow">Tep Makhon · Full-Stack Developer</p>
+            <p className="eyebrow">Full-Stack Developer · React & Node.js</p>
             <h1 id="hero-title" className="hero-heading">
+              <span className="mb-3 block text-xl font-semibold tracking-normal">
+                Tep Makhon.
+              </span>
               Building useful
               <br className="hidden sm:block" /> software, one
               <br className="hidden sm:block" /> <span>problem at a time.</span>
@@ -45,7 +47,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FiGithub aria-hidden="true" /> GitHub
+                <FiGithub aria-hidden="true" /> GitHub · {profile.username}
               </a>
               <a
                 className="inline-flex items-center gap-2"
@@ -67,7 +69,7 @@ export default function Hero() {
             </div>
             <div className="portrait-image-wrap">
               <img
-                src={portrait}
+                src={profile.photo}
                 alt="Tep Makhon"
                 width="213"
                 height="320"

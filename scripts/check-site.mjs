@@ -39,7 +39,10 @@ for (const path of [...paths, "/404"]) {
     meta.some(
       (tag) =>
         tag.name === "robots" &&
-        tag.content === (path === "/404" ? "noindex, follow" : "index, follow"),
+        tag.content ===
+          (path === "/404"
+            ? "noindex, follow"
+            : "index, follow, max-image-preview:large"),
     ),
   );
   assert(
@@ -76,12 +79,60 @@ for (const path of [...paths, "/404"]) {
     const data = JSON.parse(match[1]);
     assert.equal(data["@context"], "https://schema.org");
     assert(data["@graph"].some((item) => item["@type"] === "WebSite"));
-    if (path === "/")
-      assert(
-        data["@graph"].some(
-          (item) => item["@type"] === "Person" && item.name === "Tep Makhon",
-        ),
+    const person = data["@graph"].find((item) => item["@type"] === "Person");
+    const website = data["@graph"].find((item) => item["@type"] === "WebSite");
+    assert.equal(person.name, "Tep Makhon");
+    assert.equal(person.alternateName, "tepmakhon");
+    assert.equal(new URL(person.image).origin, origin);
+    await access(`dist${new URL(person.image).pathname}`);
+    assert(person.sameAs.includes("https://github.com/tepmakhon"));
+    assert.equal(website.publisher["@id"], person["@id"]);
+    assert.equal(website.inLanguage, "en");
+    assert.equal(website.name, "Tep Makhon");
+    if (path === "/") {
+      const page = data["@graph"].find(
+        (item) => item["@type"] === "ProfilePage",
       );
+      assert.equal(page.mainEntity["@id"], person["@id"]);
+      assert(html.match(/<h1[^>]*>[\s\S]*?<\/h1>/)[0].includes("Tep Makhon"));
+      assert(
+        meta.some(
+          (tag) =>
+            tag.name === "google-site-verification" &&
+            tag.content === render("/").googleVerification,
+        ),
+        "Homepage contains the configured Google ownership token in its head",
+      );
+      for (const [variable, name] of [
+        ["VITE_GOOGLE_SITE_VERIFICATION", "google-site-verification"],
+        ["VITE_BING_SITE_VERIFICATION", "msvalidate.01"],
+      ]) {
+        if (process.env[variable])
+          assert(
+            meta.some(
+              (tag) =>
+                tag.name === name && tag.content === process.env[variable],
+            ),
+          );
+      }
+    } else {
+      const breadcrumbs = data["@graph"].find(
+        (item) => item["@type"] === "BreadcrumbList",
+      );
+      const work = data["@graph"].find(
+        (item) => item["@type"] === "CreativeWork",
+      );
+      const page = data["@graph"].find((item) => item["@type"] === "WebPage");
+      assert(html.includes('aria-label="Breadcrumb"'));
+      assert.deepEqual(
+        breadcrumbs.itemListElement.map((item) => item.position),
+        [1, 2],
+      );
+      assert.equal(breadcrumbs.itemListElement[1].item, canonical[0].href);
+      assert.equal(page.mainEntity["@id"], work["@id"]);
+      assert.equal(work.contributor["@id"], person["@id"]);
+      assert(work.sameAs[0].startsWith("https://github.com/"));
+    }
   }
   assert(
     !/tepmakhon\.dev|https:\/\/makhon-portfolio\.vercel\.app|<!--page-content-->/.test(

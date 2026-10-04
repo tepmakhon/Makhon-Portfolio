@@ -69,6 +69,8 @@ No Lighthouse scores or real-user Core Web Vitals are claimed. Browser hydration
 
 ## SEO and hosting
 
+For worldwide discovery, Google/Bing ownership verification, sitemap submission, and consistent profile links, follow [the search discovery guide](docs/search-discovery.md). The owner-provided Google ownership token is configured in `src/data/site.ts`. `VITE_GOOGLE_SITE_VERIFICATION` can override it, and optional `VITE_BING_SITE_VERIFICATION` enables Bing verification. These values contain only public verification tokens; rebuild and redeploy after changing them.
+
 `src/entry-server.tsx` renders the same route tree as the client. Helmet 3 uses React 19 native metadata; the build moves rendered metadata into the document head. Content is visible in the HTML before JavaScript. `scripts/prerender.mjs` derives sitemap routes from the project data, uses one origin, and generates robots.txt. The homepage describes the visible identity with Person and WebSite JSON-LD. Unknown routes are excluded from the sitemap and have noindex metadata.
 
 `vercel.json` uses clean URLs for the generated project HTML, removes trailing slashes, serves the static 404 page, and applies immutable caching only to hashed assets. It does not rewrite every URL to the homepage.
