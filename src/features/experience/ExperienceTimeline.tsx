@@ -10,7 +10,7 @@ export default function ExperienceTimeline() {
     <section id="experience" className="py-24">
       <Container>
         <SectionTitle
-          title="Experience"
+          title="Projects & Learning Experience"
           subtitle="My journey in software development."
         />
 
@@ -24,7 +24,7 @@ export default function ExperienceTimeline() {
               h-full
               w-1
               rounded-full
-              bg-slate-200
+              bg-[var(--color-border)]
             "
           />
 

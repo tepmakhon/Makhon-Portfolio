@@ -2,9 +2,9 @@ import { FiMoon, FiSun } from "react-icons/fi";
 import { useTheme } from "../../context/ThemeContext";
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
-  const isDark = theme === "dark";
+  const isDark = resolvedTheme === "dark";
 
   return (
     <button
@@ -17,8 +17,7 @@ export default function ThemeToggle() {
         border
         p-3
         transition
-        hover:bg-slate-100
-        dark:hover:bg-slate-800
+        hover:bg-[var(--color-primary-soft)]
         focus-visible:outline-none
         focus-visible:ring-2
         focus-visible:ring-[var(--color-primary)]

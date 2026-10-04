@@ -7,7 +7,7 @@ export default function Contact() {
     <Section
       id="contact"
       title="Contact"
-      subtitle="Let's build something amazing together."
+      subtitle="Have an internship opportunity or a project in mind? Let’s talk."
     >
       <div className="grid gap-10 lg:grid-cols-2">
         <ContactInfo />

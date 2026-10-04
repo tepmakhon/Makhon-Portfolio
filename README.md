@@ -1,266 +1,112 @@
-# 💼 Tep Makhon Portfolio
+# Tep Makhon — Developer Portfolio
 
-A modern, responsive, and high-performance developer portfolio built with React, TypeScript, Vite, and Tailwind CSS to showcase my projects, technical skills, certifications, and experience.
+A personal portfolio for a fourth-year Computer Science student at the Royal University of Phnom Penh, Cambodia. It presents three documented software projects, ten learning certificates, education, project experience, a CV download, and contact options.
 
-![Portfolio Preview](./src/assets/images/projects/portfolio.webp)
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
-![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-06B6D4?logo=tailwindcss)
-![License](https://img.shields.io/badge/License-MIT-green)
----
+[Live portfolio](https://tepmakhon-portfolio.vercel.app) · [GitHub](https://github.com/tepmakhon) · [LinkedIn](https://www.linkedin.com/in/tep-makhon-542ab836b/)
 
-## 🌐 Live Demo
+## Features
 
-> https://tepmakhon-portfolio.vercel.app
+- Responsive layouts and persistent light/dark themes, including system-theme changes.
+- RUPP Student Conference & Opportunity Platform featured first, followed by Smart Classroom AI IoT and this portfolio.
+- Project detail pages with purpose, responsibility context, architecture, implementation features, and screenshots.
+- Keyboard-accessible native dialogs for the mobile menu, project screenshots, and certificate images.
+- Labeled contact fields, native validation, submission locking, inline feedback, and direct email fallback when EmailJS is not configured.
+- Static HTML for every indexable route, unique metadata, absolute canonical/social URLs, structured data, and a generated sitemap.
+- Lazy client routes, existing WebP images, below-the-fold lazy loading, and reduced-motion support.
+- Static 404 page with noindex metadata and real 404 behavior on Vercel.
 
-## 📷 Screenshots
+## Existing project images
 
-### Home
+These are the repository's original project assets, not newly captured screenshots of the upgraded UI. Refresh `public/screenshots/` after visually checking the new build.
 
-![Home](public/screenshots/home.png)
+![RUPP platform screenshot](src/assets/images/projects/rupp.webp)
+![Smart Classroom screenshot](src/assets/images/projects/smartclassroom.webp)
 
-### Projects
+## Stack
 
-![Projects](public/screenshots/projects.png)
+React 19, TypeScript 6, Vite 8, Tailwind CSS 4, React Router 7, Framer Motion, React Icons, react-helmet-async 3, and EmailJS. npm uses the existing `package-lock.json`. No dependencies were added for the upgrade.
 
-### Project Detail
+## Development
 
-![Project-Detail](public/screenshots/project-detail.png)
+Use Node.js 22.12+ or a supported newer Node.js release (the upgrade was checked with Node.js 24).
 
-
-### Certificates
-
-![Certificates](public/screenshots/certificates.png)
-
-### Contact
-
-![Contact](public/screenshots/contact.png)
----
-
-## ✨ Features
-
-- Responsive design for desktop, tablet, and mobile
-- Light & Dark mode
-- Smooth animations with Framer Motion
-- Project showcase with detailed project pages
-- Certificate gallery
-- Professional experience & education timeline
-- Downloadable CV
-- Contact section
-- SEO optimized
-- Accessibility focused
-- High Lighthouse score
-
----
-
-## 🚀 Tech Stack
-
-### Frontend
-
-- React 19
-- TypeScript
-- Vite
-- Tailwind CSS 4
-
-### UI & Animation
-
-- Framer Motion
-- React Icons
-- CSS Variables
-
-### Routing
-
-- React Router DOM
-
-### Email
-
-- EmailJS
-
-### Deployment
-
-- Vercel
-
----
-
-## 📷 Screenshots
-
-### Home
-
-> Add screenshot here
-
-### Projects
-
-> Add screenshot here
-
-### Certificates
-
-> Add screenshot here
-
-### Contact
-
-> Add screenshot here
-
----
-
-## 📁 Project Structure
-
-```
-src
-│
-├── assets
-├── components
-│   ├── common
-│   ├── layout
-│   └── ui
-│
-├── features
-│   ├── hero
-│   ├── about
-│   ├── skills
-│   ├── education
-│   ├── projects
-│   ├── certificates
-│   └── contact
-│
-├── hooks
-├── pages
-├── routes
-├── data
-├── styles
-├── types
-├── context
-└── utils
-```
-
----
-
-## ⚙️ Installation
-
-Clone the repository
-
-```bash
-git clone https://github.com/tepmakhon/Makhon-Portfolio.git
-```
-
-Go to the project
-
-```bash
-cd Makhon-Portfolio
-```
-
-Install dependencies
-
-```bash
-npm install
-```
-
-Run development server
-
-```bash
+```sh
+npm ci
+cp .env.example .env
 npm run dev
 ```
 
-Build production
+EmailJS is optional. Set these browser-safe identifiers in `.env` locally and in Vercel's environment settings:
 
-```bash
-npm run build
+```dotenv
+VITE_EMAIL_SERVICE_ID=your_service_id
+VITE_EMAIL_TEMPLATE_ID=your_template_id
+VITE_EMAIL_PUBLIC_KEY=your_public_key
 ```
 
-Preview production build
+The template receives `name`, `email`, `reply_to`, `subject`, and `message`. Set its recipient to your own email address and its Reply-To to `{{reply_to}}`. Restrict allowed origins in EmailJS to your production site and any development/preview origins you actually use. Keep private API keys out of all `VITE_*` variables: Vite embeds these values in browser assets. Configure provider-side abuse controls; browser submission limits alone are not a security boundary.
 
-```bash
+Without all three identifiers, the page shows a direct email action instead of an unusable form. Identifier presence does not prove service delivery or template correctness.
+
+## Build and checks
+
+```sh
+npm run lint
+npm run build
+npm run check:site
 npm run preview
 ```
 
----
+The build runs TypeScript checks, generates client assets, builds a temporary server renderer in `dist-ssr/`, and prerenders four indexable pages plus `404.html` into `dist/`. Deploy only `dist/`; the server bundle is a build tool, not a production server. Keep `src/data/site.ts` as the authoritative production origin.
 
-## 📊 Lighthouse
+`check:site` checks generated HTML, one H1 per page, unique titles, descriptions, canonicals, social metadata, JSON-LD syntax, local asset existence, image attributes, internal links, nested interactive elements, sitemap URLs, robots.txt, the CV PDF header, and unknown-project noindex behavior. It is not a browser, accessibility, or Lighthouse audit.
 
-| Category | Score |
-|----------|------:|
-| Performance | 96 |
-| Accessibility | 96 |
-| Best Practices | 100 |
-| SEO | 100 |
+For a bundle report, use `ANALYZE=1 npm run build`. The report remains a local diagnostic; do not publish it as an application page.
 
----
+Before deployment, inspect the preview at 375px, 768px, and 1440px in both themes, including 200% zoom and reduced motion. Check menu Escape/focus return, screenshot dialogs, certificate verification, all project links, direct route refresh, and the CV. Verify invalid input, loading, failure, and one successful EmailJS delivery using your own test message. No test email was sent during the upgrade.
 
-## 🎯 Project Goals
+No Lighthouse scores or real-user Core Web Vitals are claimed. Browser hydration, visual responsiveness, and external link availability still require verification in a browser.
 
-This portfolio was designed to:
+## SEO and hosting
 
-- Showcase my technical skills
-- Present my software projects
-- Highlight certifications and education
-- Provide recruiters with an overview of my experience
-- Demonstrate clean architecture and modern frontend development practices
+`src/entry-server.tsx` renders the same route tree as the client. Helmet 3 uses React 19 native metadata; the build moves rendered metadata into the document head. Content is visible in the HTML before JavaScript. `scripts/prerender.mjs` derives sitemap routes from the project data, uses one origin, and generates robots.txt. The homepage describes the visible identity with Person and WebSite JSON-LD. Unknown routes are excluded from the sitemap and have noindex metadata.
 
----
+`vercel.json` uses clean URLs for the generated project HTML, removes trailing slashes, serves the static 404 page, and applies immutable caching only to hashed assets. It does not rewrite every URL to the homepage.
 
-## 📂 Featured Projects
+To deploy:
 
-### Developer Portfolio
+1. Import this GitHub repository into Vercel, or use its existing Vercel project.
+2. Confirm the production domain is `tepmakhon-portfolio.vercel.app`. If it changes, update `src/data/site.ts` and the public robots/sitemap origin and rebuild.
+3. Set the EmailJS identifiers if the form is desired. Use build command `npm run build` and output directory `dist`.
+4. Deploy a preview, perform the browser checks above, then promote the reviewed deployment to production.
+5. Verify `/`, all three `/projects/:slug` URLs, `/robots.txt`, `/sitemap.xml`, `/resume.pdf`, and an unknown route. Confirm HTTP 404 for the unknown route and page-specific source metadata for real routes.
+6. Add a Google Search Console URL-prefix property for `https://tepmakhon-portfolio.vercel.app/` and complete its ownership-verification method. If using an HTML verification file, place it in `public/` and redeploy.
+7. Submit `sitemap.xml` in Search Console. Inspect the homepage and each project URL, run the live URL test, and request indexing after verification. Monitor Page Indexing and Core Web Vitals as data becomes available; indexing and search enhancements are not guaranteed.
 
-Modern responsive portfolio built with React and TypeScript.
+## Structure
 
-### RUPP Student Conference & Opportunity Platform
-
-A scalable university platform for conferences, internships, scholarships, competitions, and career opportunities.
-
-### Smart Classroom AI IoT
-
-AI-powered classroom management system integrating QR attendance, face recognition, Flutter, and Raspberry Pi.
-
----
-
-## 📜 Certifications
-
-- Python Essentials 1
-- Python Essentials 2
-- HTML Essentials
-- CSS Essentials
-- JavaScript Essentials 1
-- JavaScript Essentials 2
-- English for IT 1
-- English for IT 2
-- English for Business & Entrepreneurship
-- Python & Flask Training
-
----
-
-## 👨‍💻 About Me
-
-I'm **Tep Makhon**, a Year 3 Computer Science student at the Royal University of Phnom Penh.
-
-I'm passionate about building scalable full-stack web applications using modern technologies and continuously improving my software engineering skills.
-
----
-
-## 📫 Contact
-
-Email
-
-```
-tepmakhon199@gmail.com
+```text
+src/
+  assets/              Original portraits, screenshots, and certificate images
+  components/          Shared layout, controls, metadata, and dialogs
+  context/             Theme state
+  data/                Profile, projects, case studies, skills, and site origin
+  features/            Homepage sections and project details
+  hooks/               Navigation and contact state
+  pages/               Home, ProjectDetail, and NotFound
+  routes/              Shared client/server route tree
+  services/            EmailJS integration
+  styles/              Shared theme and layout tokens
+  entry-server.tsx     Build-time renderer
+  main.tsx             Client mounting/hydration
+scripts/               Prerender generation and static-output checks
+public/                CV, social preview image, favicon, and theme initialization
+docs/                  Upgrade audit and verification record
+vercel.json            Static hosting configuration
 ```
 
-LinkedIn
+Reference: [Vite server-side rendering](https://vite.dev/guide/ssr.html) and [Vercel project configuration](https://vercel.com/docs/project-configuration).
 
-https://www.linkedin.com/in/tep-makhon-542ab836b/
+## Content to confirm
 
-GitHub
-
-https://github.com/tepmakhon
-
----
-
-## ⭐ Support
-
-If you like this project, consider giving it a ⭐ on GitHub.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
+The student year was updated from the user's brief. Internship availability and existing project/training dates were retained. SmartRoadmap is omitted because this repository contains no description, screenshot, or verified links for it. Smart Classroom remains explicitly identified as a group project; individual contributions, production usage, measured outcomes, and personal challenge stories were not invented. Review the existing CV and provide a higher-resolution portrait and current screenshots when available.

@@ -26,15 +26,15 @@ export default function TimelineItem({ experience }: Props) {
       />
 
       <Card className="transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-        <span className="text-sm font-semibold text-[#146C43]">
+        <span className="text-sm font-semibold text-[var(--color-primary)]">
           {experience.year}
         </span>
 
         <h3 className="mt-2 text-2xl font-bold">{experience.title}</h3>
 
-        <p className="mt-1 text-slate-500">{experience.company}</p>
+        <p className="mt-1 text-[var(--color-muted)]">{experience.company}</p>
 
-        <p className="mt-6 leading-8 text-slate-600">
+        <p className="mt-6 leading-8 text-[var(--color-muted)]">
           {experience.description}
         </p>
 

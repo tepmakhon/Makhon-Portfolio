@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer
       className="
-        mt-28
+        mt-0
         border-t
         border-[var(--color-border)]
         bg-[var(--color-surface)]

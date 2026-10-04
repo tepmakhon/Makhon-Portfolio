@@ -28,7 +28,7 @@ export default function ProjectFeatures({ features }: Props) {
             <MotionCard key={feature}>
               <motion.div
                 variants={fadeUp}
-                initial="hidden"
+                initial={false}
                 animate="visible"
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}

@@ -1,17 +1,19 @@
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const sections = [
   "hero",
   "about",
   "skills",
+  "projects",
   "experience",
   "education",
-  "projects",
   "certificates",
   "contact",
 ];
 
 export default function useActiveSection() {
+  const { pathname } = useLocation();
   const [active, setActive] = useState("hero");
 
   useEffect(() => {
@@ -33,7 +35,7 @@ export default function useActiveSection() {
     onScroll();
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [pathname]);
 
   return active;
 }

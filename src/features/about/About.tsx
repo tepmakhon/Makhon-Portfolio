@@ -18,15 +18,19 @@ export default function About() {
         <div>
           <h3 className="mb-6 text-2xl font-bold">My Journey</h3>
 
-          <p className="leading-8 text-slate-600">{profile.bio}</p>
+          <p className="leading-8 text-[var(--color-muted)]">{profile.bio}</p>
 
           <h3 className="mt-10 mb-4 text-xl font-semibold">Passion</h3>
 
-          <p className="leading-8 text-slate-600">{profile.passion}</p>
+          <p className="leading-8 text-[var(--color-muted)]">
+            {profile.passion}
+          </p>
 
           <h3 className="mt-10 mb-4 text-xl font-semibold">Career Goal</h3>
 
-          <p className="leading-8 text-slate-600">{profile.careerGoal}</p>
+          <p className="leading-8 text-[var(--color-muted)]">
+            {profile.careerGoal}
+          </p>
         </div>
 
         {/* Right */}

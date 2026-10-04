@@ -1,7 +1,9 @@
+import NotFound from "./NotFound";
 import { useParams } from "react-router-dom";
 
 import { projects } from "../data/projects";
 import ProjectHero from "../features/project-detail/ProjectHero";
+import ProjectCaseStudy from "../features/project-detail/ProjectCaseStudy";
 import ProjectOverview from "../features/project-detail/ProjectOverview";
 import ProjectFeatures from "../features/project-detail/ProjectFeatures";
 import ProjectTechStack from "../features/project-detail/ProjectTechStack";
@@ -14,13 +16,7 @@ export default function ProjectDetail() {
 
   const project = projects.find((p) => p.slug === slug);
 
-  if (!project) {
-    return (
-      <div className="py-40 text-center">
-        <h1 className="text-4xl font-bold">Project Not Found</h1>
-      </div>
-    );
-  }
+  if (!project) return <NotFound />;
   const relatedProjects = projects
     .filter((p) => p.id !== project.id)
     .slice(0, 3);
@@ -38,18 +34,19 @@ export default function ProjectDetail() {
         title={`${project.title} | Tep Makhon`}
         description={project.shortDescription}
         image={project.image}
-        url={`https://tepmakhon.dev/projects/${project.slug}`}
+        url={`/projects/${project.slug}`}
       />
 
       <ProjectHero project={project} />
 
       <ProjectOverview overview={project.overview} />
+      <ProjectCaseStudy slug={project.slug} />
 
       <ProjectFeatures features={project.features} />
 
       <ProjectTechStack technologies={project.technologies} />
 
-      <ProjectGallery images={project.images} />
+      <ProjectGallery images={project.images} title={project.title} />
 
       <RelatedProjects projects={relatedProjects} />
 

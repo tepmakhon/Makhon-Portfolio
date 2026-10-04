@@ -17,13 +17,17 @@ export default function BackToTop() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
     });
   };
 
   return (
     <button
       onClick={scrollToTop}
+      tabIndex={visible ? 0 : -1}
+      aria-hidden={!visible}
       aria-label="Back to top"
       className={`
         fixed
@@ -37,7 +41,7 @@ export default function BackToTop() {
         justify-center
         rounded-full
         bg-[var(--color-primary)]
-        text-white
+        text-[var(--color-background)]
         shadow-lg
         transition-all
         duration-300

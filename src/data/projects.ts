@@ -18,7 +18,7 @@ export const projects: Project[] = [
       "A modern responsive developer portfolio built with React and TypeScript.",
 
     overview:
-      "A premium portfolio website showcasing my skills, projects, experience, education, and certifications. Built with reusable components, dark mode, animations, and responsive design.",
+      "A personal portfolio website showcasing my skills, projects, experience, education, and certifications. Built with reusable components, dark mode, animations, and responsive design.",
 
     features: [
       "Responsive Design",
@@ -34,18 +34,18 @@ export const projects: Project[] = [
       "TypeScript",
       "Tailwind CSS",
       "Framer Motion",
-      "Cloudinary",
+      "EmailJS",
     ],
 
     image: portfolioImage,
 
-    images: [portfolioImage],//we can add more images here
+    images: [portfolioImage],
 
     github: "https://github.com/tepmakhon/Makhon-Portfolio",
 
-    demo: "",
+    demo: "https://tepmakhon-portfolio.vercel.app",
 
-    highlight: true,
+    highlight: false,
   },
 
   {
@@ -53,7 +53,7 @@ export const projects: Project[] = [
 
     slug: "rupp-student-conference-platform",
 
-    title: "RUPP Student Conference Platform",
+    title: "RUPP Student Conference & Opportunity Platform",
 
     category: "University Project",
 
@@ -76,13 +76,13 @@ export const projects: Project[] = [
 
     image: ruppImage,
 
-    images: [ruppImage],//we can add more images here
+    images: [ruppImage],
 
     github: "https://github.com/tepmakhon/rupp-student-conference-platform",
 
     demo: "",
 
-    highlight: false,
+    highlight: true,
   },
 
   {
@@ -118,7 +118,7 @@ export const projects: Project[] = [
 
     image: smartClassroomImage,
 
-    images: [smartClassroomImage],//we can add more images here
+    images: [smartClassroomImage],
 
     github: "https://github.com/TunSopheak/Smart-Classroom-AI-IoT",
 

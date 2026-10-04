@@ -8,7 +8,7 @@ export default function Certificates() {
     <Section
       id="certificates"
       title="Certifications"
-      subtitle="Professional certifications and continuous learning achievements."
+      subtitle="Certificates from technical courses, language study, and hands-on training. Select an image to read it."
     >
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {certificates.map((certificate) => (

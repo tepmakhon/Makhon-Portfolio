@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { navigation } from "../../constants/navigation";
 
 export default function FooterLinks() {
@@ -10,8 +11,8 @@ export default function FooterLinks() {
       <ul className="mt-6 space-y-3">
         {navigation.map((item) => (
           <li key={item.href}>
-            <a
-              href={item.href}
+            <Link
+              to={`/${item.href}`}
               className="
                 text-[var(--color-muted)]
                 transition
@@ -19,7 +20,7 @@ export default function FooterLinks() {
               "
             >
               {item.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

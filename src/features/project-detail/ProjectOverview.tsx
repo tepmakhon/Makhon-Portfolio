@@ -27,7 +27,7 @@ export default function ProjectOverview({ overview }: Props) {
           <Card className="p-10">
             <motion.p
               variants={fadeUp}
-              initial="hidden"
+              initial={false}
               animate="visible"
               viewport={{ once: true }}
               className="

@@ -1,175 +1,81 @@
-import { useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
-
 type Props = {
   images: string[];
   current: number;
   onClose: () => void;
   onNext: () => void;
   onPrevious: () => void;
+  alt?: string;
 };
-
 export default function ImageLightbox({
   images,
   current,
   onClose,
   onNext,
   onPrevious,
+  alt = "Project screenshot",
 }: Props) {
+  const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-
-      if (e.key === "ArrowLeft") onPrevious();
-
-      if (e.key === "ArrowRight") onNext();
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
+    const dialog = ref.current;
+    const previous = document.body.style.overflow;
+    dialog?.showModal();
     document.body.style.overflow = "hidden";
-
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-
-      document.body.style.overflow = "";
+      dialog?.close();
+      document.body.style.overflow = previous;
     };
-  }, [onClose, onNext, onPrevious]);
-
+  }, []);
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        exit={{
-          opacity: 0,
-        }}
-        className="
-          fixed
-          inset-0
-          z-[999]
-          flex
-          items-center
-          justify-center
-          bg-black/90
-          p-6
-          backdrop-blur-md
-        "
-        onClick={onClose}
-      >
-        {/* Close */}
-
-        <button
-          onClick={onClose}
-          className="
-            absolute
-            top-8
-            right-8
-            rounded-full
-            bg-white/10
-            p-3
-            text-white
-            transition
-            hover:bg-white/20
-          "
-        >
-          <FiX size={28} />
-        </button>
-
-        {/* Previous */}
-
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onPrevious();
-          }}
-          className="
-            absolute
-            left-8
-            rounded-full
-            bg-white/10
-            p-4
-            text-white
-            transition
-            hover:bg-white/20
-          "
-        >
-          <FiChevronLeft size={30} />
-        </button>
-
-        {/* Image */}
-
-        <motion.img
-          key={current}
-          initial={{
-            opacity: 0,
-            scale: 0.95,
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-          }}
-          exit={{
-            opacity: 0,
-          }}
-          transition={{
-            duration: 0.25,
-          }}
-          src={images[current]}
-          alt={`Screenshot ${current + 1}`}
-          onClick={(e) => e.stopPropagation()}
-          className="
-            max-h-[85vh]
-            max-w-[90vw]
-            rounded-3xl
-            shadow-2xl
-          "
-        />
-
-        {/* Next */}
-
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onNext();
-          }}
-          className="
-            absolute
-            right-8
-            rounded-full
-            bg-white/10
-            p-4
-            text-white
-            transition
-            hover:bg-white/20
-          "
-        >
-          <FiChevronRight size={30} />
-        </button>
-
-        {/* Counter */}
-
-        <div
-          className="
-            absolute
-            bottom-8
-            rounded-full
-            bg-white/10
-            px-5
-            py-2
-            text-sm
-            text-white
-            backdrop-blur
-          "
-        >
+    <dialog
+      ref={ref}
+      aria-label="Image viewer"
+      onCancel={onClose}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "ArrowLeft") onPrevious();
+        if (e.key === "ArrowRight") onNext();
+      }}
+      className="fixed inset-0 m-auto max-h-[95dvh] max-w-[96vw] overflow-auto rounded-xl border border-white/20 bg-[#111a16] p-4 text-white backdrop:bg-black/90"
+    >
+      <div className="mb-3 flex items-center justify-between gap-4">
+        <p className="text-sm" aria-live="polite">
           {current + 1} / {images.length}
+        </p>
+        <button
+          aria-label="Close image viewer"
+          onClick={onClose}
+          className="rounded-lg p-3"
+        >
+          <FiX size={24} />
+        </button>
+      </div>
+      <img
+        src={images[current]}
+        alt={`${alt} ${current + 1}`}
+        className="max-h-[72dvh] w-auto max-w-full object-contain"
+      />
+      {images.length > 1 && (
+        <div className="mt-3 flex justify-between">
+          <button
+            aria-label="Previous image"
+            onClick={onPrevious}
+            className="rounded-lg p-3"
+          >
+            <FiChevronLeft size={24} />
+          </button>
+          <button
+            aria-label="Next image"
+            onClick={onNext}
+            className="rounded-lg p-3"
+          >
+            <FiChevronRight size={24} />
+          </button>
         </div>
-      </motion.div>
-    </AnimatePresence>
+      )}
+    </dialog>
   );
 }

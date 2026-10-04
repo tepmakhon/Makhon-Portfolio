@@ -29,7 +29,7 @@ export default function ProjectTechStack({ technologies }: Props) {
           <Card className="p-8">
             <motion.div
               variants={staggerContainer}
-              initial="hidden"
+              initial={false}
               animate="visible"
               viewport={{ once: true }}
               className="flex flex-wrap gap-4"

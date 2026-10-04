@@ -24,7 +24,7 @@ export default function FooterSocial() {
             transition-all
             duration-300
             hover:bg-[var(--color-primary)]
-            hover:text-white
+            hover:text-[var(--color-background)]
           "
         >
           <FiGithub size={20} />
@@ -44,7 +44,7 @@ export default function FooterSocial() {
             transition-all
             duration-300
             hover:bg-[var(--color-primary)]
-            hover:text-white
+            hover:text-[var(--color-background)]
           "
         >
           <FiLinkedin size={20} />
@@ -62,7 +62,7 @@ export default function FooterSocial() {
             transition-all
             duration-300
             hover:bg-[var(--color-primary)]
-            hover:text-white
+            hover:text-[var(--color-background)]
           "
         >
           <FiMail size={20} />

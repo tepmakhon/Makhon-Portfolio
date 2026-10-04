@@ -1,3 +1,4 @@
+import { HOME_TITLE, HOME_DESCRIPTION } from "../data/site";
 import SEO from "../components/common/SEO";
 
 import Hero from "../features/hero/Hero";
@@ -12,18 +13,14 @@ import Contact from "../features/contact/Contact";
 export default function Home() {
   return (
     <>
-      <SEO
-        title="Tep Makhon | Full Stack Developer"
-        description="Portfolio of Tep Makhon, Full Stack Developer specializing in React, TypeScript, Express, PostgreSQL, Prisma, and modern web development."
-        url="https://makhon-portfolio.vercel.app"
-      />
+      <SEO title={HOME_TITLE} description={HOME_DESCRIPTION} person />
 
       <Hero />
       <About />
       <Skills />
+      <FeaturedProjects />
       <ExperienceTimeline />
       <Education />
-      <FeaturedProjects />
       <Certificates />
       <Contact />
     </>

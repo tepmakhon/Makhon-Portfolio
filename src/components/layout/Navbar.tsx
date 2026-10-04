@@ -1,175 +1,69 @@
 import { useState } from "react";
-import { FiMenu } from "react-icons/fi";
-import { useLocation, useNavigate } from "react-router-dom";
-
+import { FiMenu, FiArrowUpRight } from "react-icons/fi";
+import { Link, useLocation } from "react-router-dom";
 import Container from "./Container";
 import MobileMenu from "./MobileMenu";
-
-import { navigation } from "../../constants/navigation";
-
-import useScroll from "../../hooks/useScroll";
-import useActiveSection from "../../hooks/useActiveSection";
 import ThemeToggle from "../common/ThemeToggle";
-import { profile } from "../../data/profile";
-import { FiDownload } from "react-icons/fi";
+import { navigation } from "../../constants/navigation";
+import useActiveSection from "../../hooks/useActiveSection";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-
-  const scrolled = useScroll();
   const active = useActiveSection();
-
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const handleNavigation = (href: string) => {
-    const id = href.replace("#", "");
-
-    if (location.pathname === "/") {
-      document.getElementById(id)?.scrollIntoView({
-        behavior: "smooth",
-      });
-      return;
-    }
-
-    navigate(`/${href}`);
-  };
-
+  const { pathname } = useLocation();
   return (
-    <>
-      <header
-        className={`
-          sticky
-          top-0
-          z-50
-          transition-all
-          duration-300
-          ${
-            scrolled
-              ? "border-b border-[var(--color-border)] bg-[var(--color-surface)]/95 shadow-lg"
-              : "bg-[var(--color-surface)]/80"
-          }
-        `}
-      >
-        <Container>
-          <nav
-            className={`
-              flex
-              items-center
-              justify-between
-              transition-all
-              duration-300
-              ${scrolled ? "h-14" : "h-16"}
-            `}
-          >
-            {/* Logo */}
-
-            <button
-              onClick={() => handleNavigation("#hero")}
-              className={`
-                flex
-                items-center
-                gap-1
-                font-bold
-                transition-all
-                duration-300
-                ${scrolled ? "text-lg" : "text-xl"}
-              `}
+    <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-background)]">
+      <Container>
+        <nav
+          aria-label="Main navigation"
+          className="flex h-20 items-center justify-between gap-4"
+        >
+          <Link to="/#hero" className="flex items-center gap-3 font-semibold">
+            <span
+              className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--color-primary)] text-sm text-[var(--color-background)]"
+              aria-hidden="true"
             >
-              <span className="text-[var(--color-primary)]">Tep</span>
-
-              <span className="text-[var(--color-text)]">Makhon</span>
+              tm.
+            </span>
+            <span>Tep Makhon</span>
+          </Link>
+          <ul className="hidden items-center gap-6 lg:flex">
+            {navigation.map((item) => (
+              <li key={item.href}>
+                <Link
+                  to={`/${item.href}`}
+                  aria-current={
+                    pathname === "/" && active === item.href.slice(1)
+                      ? "location"
+                      : undefined
+                  }
+                  className={`block py-3 text-sm ${pathname === "/" && active === item.href.slice(1) ? "font-semibold text-[var(--color-primary)]" : "text-[var(--color-muted)] hover:text-[var(--color-primary)]"}`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <a
+              href="mailto:tepmakhon199@gmail.com"
+              className="action-link hidden xl:inline-flex"
+            >
+              Let’s talk <FiArrowUpRight aria-hidden="true" />
+            </a>
+            <button
+              onClick={() => setOpen(true)}
+              aria-label="Open menu"
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              className="rounded-lg p-3 lg:hidden"
+            >
+              <FiMenu size={24} />
             </button>
-
-            {/* Desktop Navigation */}
-
-            <ul className="hidden items-center gap-8 lg:flex">
-              {navigation.map((item) => {
-                const sectionId = item.href.replace("#", "");
-
-                return (
-                  <li key={item.href}>
-                    <button
-                      onClick={() => handleNavigation(item.href)}
-                      className={`
-                        relative
-                        py-2
-                        text-sm
-                        font-medium
-                        transition-all
-                        duration-300
-
-                        ${
-                          active === sectionId
-                            ? "text-[var(--color-primary)]"
-                            : "text-[var(--color-muted)] hover:text-[var(--color-primary)]"
-                        }
-                      `}
-                    >
-                      {item.label}
-
-                      {active === sectionId && (
-                        <span
-                          className="
-                            absolute
-                            bottom-0
-                            left-0
-                            h-0.5
-                            w-full
-                            rounded-full
-                            bg-[var(--color-primary)]
-                          "
-                        />
-                      )}
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-
-            {/* Right Side */}
-
-            <div className="flex items-center gap-3">
-              <ThemeToggle />
-              <a
-                href={profile.resume}
-                download
-                className="
-                  hidden lg:flex
-                  items-center
-                  gap-2
-                  rounded-lg
-                  border
-                  border-[var(--color-border)]
-                  bg-[var(--color-surface)]
-                  px-6
-                  py-3
-                  text-sm
-                  font-medium
-                  text-[var(--color-text)]
-                  shadow-[var(--shadow-card)]
-                  transition-all
-                  duration-300
-                  hover:border-[var(--color-primary)]
-                  hover:shadow-[var(--shadow-hover)]
-                "
-              >
-                <FiDownload size={18} />
-                Download CV
-              </a>
-
-              <button
-                onClick={() => setOpen(true)}
-                className="lg:hidden"
-                aria-label="Open menu"
-              >
-                <FiMenu size={28} />
-              </button>
-            </div>
-          </nav>
-        </Container>
-      </header>
-
+          </div>
+        </nav>
+      </Container>
       <MobileMenu open={open} onClose={() => setOpen(false)} />
-    </>
+    </header>
   );
 }

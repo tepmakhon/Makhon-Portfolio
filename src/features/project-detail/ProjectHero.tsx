@@ -1,127 +1,58 @@
-import { FiArrowLeft, FiExternalLink, FiGithub } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-
-import Badge from "../../components/ui/Badge";
-import Button from "../../components/ui/Button";
+import { Link } from "react-router-dom";
+import { FiArrowLeft, FiGithub, FiExternalLink } from "react-icons/fi";
 import Container from "../../components/layout/Container";
-
-import { fadeUp, slideLeft, slideRight } from "../../animations";
-
+import Badge from "../../components/ui/Badge";
 import type { Project } from "../../types/project";
-
-type Props = {
-  project: Project;
-};
-
-export default function ProjectHero({ project }: Props) {
-  const navigate = useNavigate();
-
+export default function ProjectHero({ project }: { project: Project }) {
   return (
-    <section className="py-20">
+    <section>
       <Container>
-        {/* Back Button */}
-
-        <motion.button
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          onClick={() => navigate("/#projects")}
-          className="
-            mb-10
-            inline-flex
-            items-center
-            gap-2
-            text-sm
-            font-medium
-            text-[var(--color-primary)]
-            transition-colors
-            hover:underline
-          "
-        >
-          <FiArrowLeft />
-          Back to Projects
-        </motion.button>
-
-        <div className="grid items-center gap-14 lg:grid-cols-2">
-          {/* Image */}
-
-          <motion.div variants={slideLeft}>
-            <img
-              src={project.image}
-              alt={project.title}
-              className="
-                h-[520px]
-                w-full
-                rounded-3xl
-                border
-                border-[var(--color-border)]
-                object-cover
-                shadow-[var(--shadow-card)]
-              "
-            />
-          </motion.div>
-
-          {/* Content */}
-
-          <motion.div variants={slideRight} initial="hidden" animate="visible">
-            <Badge>{project.category}</Badge>
-
-            <h1
-              className="
-                mt-6
-                text-5xl
-                font-extrabold
-                leading-tight
-                text-[var(--color-text)]
-                lg:text-6xl
-              "
-            >
+        <Link className="link-text mb-8" to="/#projects">
+          <FiArrowLeft aria-hidden="true" /> Back to Projects
+        </Link>
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <p className="eyebrow">{project.category}</p>
+            <h1 className="mt-4 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
               {project.title}
             </h1>
-
-            <p
-              className="
-                mt-6
-                text-lg
-                leading-9
-                text-[var(--color-muted)]
-              "
-            >
+            <p className="mt-6 text-lg leading-8 text-[var(--color-muted)]">
               {project.shortDescription}
             </p>
-
-            {/* Tech Preview */}
-
-            <div className="mt-8 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
                 <Badge key={tech}>{tech}</Badge>
               ))}
             </div>
-
-            {/* Buttons */}
-
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button
-                className="flex items-center gap-2"
-                onClick={() => window.open(project.github, "_blank")}
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="action-link"
               >
-                <FiGithub />
-                GitHub
-              </Button>
-
+                <FiGithub aria-hidden="true" /> View source
+              </a>
               {project.demo && (
-                <Button
-                  variant="outline"
-                  className="flex items-center gap-2"
-                  onClick={() => window.open(project.demo, "_blank")}
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="action-link action-outline"
                 >
-                  <FiExternalLink />
-                  Live Demo
-                </Button>
+                  Live demo <FiExternalLink aria-hidden="true" />
+                </a>
               )}
             </div>
-          </motion.div>
+          </div>
+          <img
+            src={project.image}
+            alt={`${project.title} application screenshot`}
+            width="1600"
+            height="1039"
+            fetchPriority="high"
+            className="aspect-[16/10] w-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] object-contain p-3"
+          />
         </div>
       </Container>
     </section>

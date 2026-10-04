@@ -11,14 +11,14 @@ type SectionTitleProps = {
 export default function SectionTitle({
   title,
   subtitle,
-  align = "center",
+  align = "left",
   badge,
   className,
 }: SectionTitleProps) {
   return (
     <div
       className={cn(
-        "mb-14",
+        "mb-10",
         align === "center" ? "text-center" : "text-left",
         className,
       )}
@@ -45,10 +45,10 @@ export default function SectionTitle({
       <h2
         className="
           mt-4
-          text-4xl
+          text-3xl
           font-bold
           text-[var(--color-text)]
-          lg:text-5xl
+          lg:text-4xl
         "
       >
         {title}

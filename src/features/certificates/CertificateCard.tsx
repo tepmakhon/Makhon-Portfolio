@@ -1,51 +1,67 @@
-import { FiAward, FiExternalLink } from "react-icons/fi";
-
+import { useState } from "react";
+import { FiExternalLink } from "react-icons/fi";
 import Card from "../../components/ui/Card";
-import Button from "../../components/ui/Button";
-
+import ImageLightbox from "../../components/common/ImageLightbox";
 import type { Certificate } from "../../types/certificate";
-import MotionCard from "../../components/common/MotionCard";
-
-type Props = {
+export default function CertificateCard({
+  certificate,
+}: {
   certificate: Certificate;
-};
-
-export default function CertificateCard({ certificate }: Props) {
+}) {
+  const [open, setOpen] = useState(false);
   return (
-    <MotionCard>
-      <Card className="overflow-hidden p-0">
-        <img
-          loading="lazy"
-          decoding="async"
-          src={certificate.image}
-          alt={certificate.title}
-          className="h-56 w-full object-cover"
-        />
-
-        <div className="space-y-4 p-6">
-          <div className="flex items-center gap-2 text-primary">
-            <FiAward />
-            <span className="text-sm font-semibold">{certificate.issuer}</span>
-          </div>
-
-          <h3 className="text-xl font-bold">{certificate.title}</h3>
-
-          <p className="text-sm text-slate-500">
-            Issued: {certificate.issueDate}
+    <>
+      <Card className="h-full overflow-hidden p-0">
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="block w-full bg-[var(--color-primary-soft)] p-3"
+          aria-label={`Enlarge ${certificate.title} certificate`}
+        >
+          <img
+            loading="lazy"
+            decoding="async"
+            src={certificate.image}
+            alt={`${certificate.title} certificate issued by ${certificate.issuer}`}
+            width="1000"
+            height="700"
+            className="aspect-[10/7] w-full object-contain"
+          />
+        </button>
+        <div className="p-6">
+          <p className="text-xs text-[var(--color-muted)]">
+            {certificate.issuer} · {certificate.issueDate}
           </p>
-
+          <h3 className="mt-3 text-lg font-semibold">{certificate.title}</h3>
+          <button
+            onClick={() => setOpen(true)}
+            className="link-text mt-3 text-sm"
+          >
+            View certificate
+          </button>
           {certificate.credentialUrl && (
-            <Button
-              variant="outline"
-              className="flex items-center gap-2"
-              onClick={() => window.open(certificate.credentialUrl, "_blank")}
+            <a
+              href={certificate.credentialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-text ml-4 text-sm"
             >
-              <FiExternalLink />
-              View Certificate
-            </Button>
+              Verify <FiExternalLink aria-hidden="true" />
+              <span className="sr-only">{certificate.title}</span>
+            </a>
           )}
         </div>
       </Card>
-    </MotionCard>
+      {open && (
+        <ImageLightbox
+          images={[certificate.image]}
+          current={0}
+          alt={`${certificate.title} certificate`}
+          onClose={() => setOpen(false)}
+          onNext={() => {}}
+          onPrevious={() => {}}
+        />
+      )}
+    </>
   );
 }

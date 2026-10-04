@@ -16,11 +16,11 @@ export default function EducationCard({ education }: Props) {
         <div className="flex flex-col gap-5">
           <h3 className="text-2xl font-bold">{education.degree}</h3>
 
-          <h4 className="text-lg font-semibold text-primary">
+          <h4 className="text-lg font-semibold text-[var(--color-primary)]">
             {education.school}
           </h4>
 
-          <div className="flex flex-wrap gap-6 text-sm text-slate-500">
+          <div className="flex flex-wrap gap-6 text-sm text-[var(--color-muted)]">
             <div className="flex items-center gap-2">
               <FiCalendar />
               {education.period}
@@ -32,7 +32,9 @@ export default function EducationCard({ education }: Props) {
             </div>
           </div>
 
-          <p className="leading-7 text-slate-600">{education.description}</p>
+          <p className="leading-7 text-[var(--color-muted)]">
+            {education.description}
+          </p>
 
           <div className="flex flex-wrap gap-2">
             {education.courses.map((course) => (

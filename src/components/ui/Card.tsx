@@ -11,7 +11,7 @@ export default function Card({ children, className }: CardProps) {
     <div
       className={cn(
         `
-        rounded-3xl
+        rounded-2xl
         border
         border-[var(--color-border)]
         bg-[var(--color-surface)]

@@ -1,190 +1,114 @@
-import { motion } from "framer-motion";
-
-import Container from "../../components/layout/Container";
-import Button from "../../components/ui/Button";
-import DeveloperCard from "../../components/common/DeveloperCard";
-import AnimatedCounter from "../../components/common/AnimatedCounter";
-
-import { profile } from "../../data/profile";
-
 import {
-  slideLeft,
-  slideRight,
-  fadeUp,
-  staggerContainer,
-} from "../../animations";
+  FiArrowUpRight,
+  FiDownload,
+  FiGithub,
+  FiLinkedin,
+  FiMapPin,
+} from "react-icons/fi";
+import Container from "../../components/layout/Container";
+import { profile } from "../../data/profile";
+import { projects } from "../../data/projects";
+import { certificates } from "../../data/certificates";
+import portrait from "../../assets/images/profile.webp";
 
-import HeroBackground from "./HeroBackground";
-import FloatingTechIcons from "./FloatingTechIcons";
-import { FiDownload } from "react-icons/fi";
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      aria-labelledby="hero-title"
-      className="
-        relative
-        isolate
-        flex
-        min-h-[calc(100vh-64px)]
-        items-center
-        overflow-hidden
-        py-20
-      "
-    >
-      <HeroBackground />
-      <FloatingTechIcons />
+    <section id="hero" aria-labelledby="hero-title" className="hero-section">
       <Container>
-        <motion.div
-          className="grid items-center gap-24 lg:grid-cols-2"
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-          viewport={{ once: true,amount: 0.2 }}
-        >
-          {/* Left */}
-
-          <motion.div variants={slideLeft}>
-            <p
-              className="
-                font-semibold
-                uppercase
-                tracking-[0.3em]
-                text-[var(--color-primary)]
-              "
-            >
-              Welcome, I'm
-            </p>
-
-            <h1
-              id="hero-title"
-              className="
-                mt-4
-                text-5xl
-                font-extrabold
-                leading-tight
-                tracking-tight
-                text-[var(--color-text)]
-                sm:text-6xl
-                xl:text-7xl
-                2xl:text-8xl
-              "
-            >
-              {profile.fullName}
+        <div className="grid items-center gap-12 lg:grid-cols-[1.35fr_1fr] lg:gap-20">
+          <div>
+            <p className="eyebrow">Tep Makhon · Full-Stack Developer</p>
+            <h1 id="hero-title" className="hero-heading">
+              Building useful
+              <br className="hidden sm:block" /> software, one
+              <br className="hidden sm:block" /> <span>problem at a time.</span>
             </h1>
-
-            <h2
-              className="
-                mt-6
-                text-2xl
-                font-semibold
-                text-[var(--color-primary)]
-              "
-            >
-              {profile.title}
-            </h2>
-
-            <p
-              className="
-                mt-8
-                max-w-xl
-                text-lg
-                leading-8
-                text-[var(--color-muted)]
-              "
-            >
+            <p className="mt-6 max-w-xl text-lg leading-8 text-[var(--color-muted)]">
               {profile.headline}
             </p>
-
-            {/* Statistics */}
-
-            <motion.div
-              variants={staggerContainer}
-              className="mt-12 flex flex-wrap gap-10"
-            >
-              {profile.stats.map((item) => (
-                <motion.div key={item.label} variants={fadeUp}>
-                  <h3
-                    className="
-                      text-4xl
-                      font-extrabold
-                      text-[var(--color-primary)]
-                      lg:text-5xl
-                    "
-                  >
-                    <AnimatedCounter end={item.value} suffix="+" />
-                  </h3>
-
-                  <p
-                    className="
-                      mt-2
-                      text-base
-                      font-medium
-                      text-[var(--color-muted)]
-                    "
-                  >
-                    {item.label}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {/* Buttons */}
-
-            <motion.div
-              variants={fadeUp}
-              className="mt-12 flex flex-wrap gap-4 sm:flex-row"
-            >
-              <Button
-                type="button"
-                className="
-                  shadow-[var(--shadow-card)]
-                  hover:shadow-[var(--shadow-hover)]
-                "
-                onClick={() =>
-                  document.getElementById("projects")?.scrollIntoView({
-                    behavior: "smooth",
-                  })
-                }
-              >
-                Explore Projects
-              </Button>
-
-              <a
-                aria-label="Download my CV"
-                title="Download CV"
-                className="
-                  flex
-                  items-center
-                  gap-2
-                  rounded-lg
-                  border
-                  border-[var(--color-border)]
-                  bg-[var(--color-surface)]
-                  px-6
-                  py-3
-                  text-sm
-                  font-medium
-                  text-[var(--color-text)]
-                  shadow-[var(--shadow-card)]
-                  transition-shadow
-                  hover:shadow-[var(--shadow-hover)]
-                "
-                href={profile.resume}
-                download
-              >
-                <FiDownload size={18} aria-hidden="true"/>
-                Download CV
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a className="action-link" href="#projects">
+                Explore My Projects <FiArrowUpRight aria-hidden="true" />
               </a>
-            </motion.div>
-          </motion.div>
-
-          {/* Right */}
-
-          <motion.div variants={slideRight} className="flex justify-center">
-            <DeveloperCard />
-          </motion.div>
-        </motion.div>
+              <a
+                className="action-link action-outline"
+                href={profile.resume}
+                download="Tep-Makhon-CV.pdf"
+              >
+                <FiDownload aria-hidden="true" /> Download CV
+              </a>
+            </div>
+            <div className="mt-7 flex flex-wrap items-center gap-6 text-sm text-[var(--color-muted)]">
+              <a
+                className="inline-flex items-center gap-2"
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiGithub aria-hidden="true" /> GitHub
+              </a>
+              <a
+                className="inline-flex items-center gap-2"
+                href={profile.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiLinkedin aria-hidden="true" /> LinkedIn
+              </a>
+              <span className="inline-flex items-center gap-2">
+                <FiMapPin aria-hidden="true" /> Phnom Penh, Cambodia
+              </span>
+            </div>
+          </div>
+          <div className="portrait-panel">
+            <div className="flex items-center justify-between border-b border-[var(--color-border)] px-6 py-4 text-xs text-[var(--color-muted)]">
+              <span>THE PERSON BEHIND THE CODE</span>
+              <span aria-hidden="true">↗</span>
+            </div>
+            <div className="portrait-image-wrap">
+              <img
+                src={portrait}
+                alt="Tep Makhon"
+                width="213"
+                height="320"
+                fetchPriority="high"
+                className="portrait-image"
+              />
+            </div>
+            <div className="border-t border-[var(--color-border)] p-6">
+              <p className="text-xl font-semibold">Learning by building.</p>
+              <p className="mt-2 text-sm text-[var(--color-muted)]">
+                Fourth-year Computer Science · RUPP
+              </p>
+              {profile.available && (
+                <p className="mt-4 flex items-center gap-2 text-sm text-[var(--color-primary)]">
+                  <span
+                    className="h-2 w-2 rounded-full bg-[var(--color-primary)]"
+                    aria-hidden="true"
+                  />
+                  {profile.availableText}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="hero-facts">
+          <div>
+            <strong>{String(projects.length).padStart(2, "0")}</strong>
+            <span>Software projects</span>
+          </div>
+          <div>
+            <strong>{certificates.length}</strong>
+            <span>Learning certificates</span>
+          </div>
+          <div>
+            <strong>React + Node.js</strong>
+            <span>From interface to API</span>
+          </div>
+          <a href="#about">
+            Get to know me <span aria-hidden="true">↓</span>
+          </a>
+        </div>
       </Container>
     </section>
   );

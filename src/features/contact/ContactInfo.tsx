@@ -10,7 +10,7 @@ export default function ContactInfo() {
       <Card className="space-y-8">
         <h3 className="text-3xl font-bold">Let's Work Together</h3>
 
-        <p className="leading-8 text-slate-600">
+        <p className="leading-8 text-[var(--color-muted)]">
           I'm currently looking for internship opportunities, freelance
           projects, and collaborations.
         </p>
@@ -18,7 +18,12 @@ export default function ContactInfo() {
         <div className="space-y-6">
           <div className="flex items-center gap-4">
             <FiMail size={22} />
-            <span>{profile.email}</span>
+            <a
+              className="break-all underline underline-offset-4"
+              href={`mailto:${profile.email}`}
+            >
+              {profile.email}
+            </a>
           </div>
 
           <div className="flex items-center gap-4">

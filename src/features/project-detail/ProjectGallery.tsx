@@ -1,42 +1,37 @@
+import { useState } from "react";
 import Container from "../../components/layout/Container";
 import SectionTitle from "../../components/ui/SectionTitle";
-import { useState } from "react";
-
 import ImageLightbox from "../../components/common/ImageLightbox";
-type Props = {
+export default function ProjectGallery({
+  images,
+  title,
+}: {
   images: string[];
-};
-
-export default function ProjectGallery({ images }: Props) {
+  title: string;
+}) {
   const [selected, setSelected] = useState<number | null>(null);
   return (
-    <section className="pb-20">
+    <section>
       <Container>
-        <SectionTitle title="Gallery" align="left" />
-
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <SectionTitle title="Project Screenshots" align="left" />
+        <div className="grid gap-6 md:grid-cols-2">
           {images.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`Screenshot ${index + 1}`}
-              loading="lazy"
-              decoding="async"
+            <button
+              key={image}
               onClick={() => setSelected(index)}
-              className="
-                cursor-pointer
-                h-64
-                w-full
-                rounded-2xl
-                object-cover
-                border
-                border-[var(--color-border)]
-                shadow-[var(--shadow-card)]
-                transition-transform
-                duration-300
-                hover:scale-[1.02]
-              "
-            />
+              aria-label={`Enlarge ${title} screenshot ${index + 1}`}
+              className="overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-3"
+            >
+              <img
+                src={image}
+                alt={`${title} screenshot ${index + 1}`}
+                width="1600"
+                height="1039"
+                loading="lazy"
+                decoding="async"
+                className="aspect-[16/10] w-full object-contain"
+              />
+            </button>
           ))}
         </div>
       </Container>
@@ -44,6 +39,7 @@ export default function ProjectGallery({ images }: Props) {
         <ImageLightbox
           images={images}
           current={selected}
+          alt={`${title} screenshot`}
           onClose={() => setSelected(null)}
           onNext={() => setSelected((selected + 1) % images.length)}
           onPrevious={() =>

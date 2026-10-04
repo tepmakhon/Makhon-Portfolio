@@ -14,17 +14,17 @@ export default function Button({
 }: ButtonProps) {
   const variants = {
     primary:
-      "bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)]",
+      "bg-[var(--color-primary)] text-[var(--color-background)] hover:bg-[var(--color-secondary)]",
 
     secondary:
-      "bg-[var(--color-secondary)] text-white hover:bg-[var(--color-primary)]",
+      "bg-[var(--color-secondary)] text-[var(--color-background)] hover:bg-[var(--color-primary)]",
 
     outline: `
       border
       bg-[var(--color-primary-soft)]
       text-[var(--color-primary)]
       hover:bg-[var(--color-primary)]
-      hover:text-white
+      hover:text-[var(--color-background)]
       `,
   };
 

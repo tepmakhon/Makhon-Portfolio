@@ -7,12 +7,12 @@ export const profile = {
   lastName: "Makhon",
   fullName: "Tep Makhon",
 
-  title: "Full Stack Developer",
+  title: "Full-Stack Developer",
 
   headline:
-    "I build modern, scalable, and user-focused web applications using React, TypeScript, Express, PostgreSQL, Prisma, and AI technologies.",
+    "I'm Tep Makhon, a fourth-year Computer Science student at RUPP focused on full-stack web development, REST APIs, and practical software solutions.",
 
-  bio: "Passionate Full Stack Developer who enjoys building modern web applications using React, TypeScript, Express, PostgreSQL, and AI. I enjoy learning new technologies, solving real-world problems, and creating user-friendly digital experiences.",
+  bio: "I study Computer Science at the Royal University of Phnom Penh and build web applications with React, TypeScript, Express, and PostgreSQL. My projects help me practice turning a problem into a usable interface, an API, and a database.",
 
   // ========================
   // Education
@@ -22,7 +22,7 @@ export const profile = {
 
   major: "Computer Science",
 
-  year: "Year 3",
+  year: "Fourth year",
 
   // ========================
   // Location
@@ -40,7 +40,7 @@ export const profile = {
 
   linkedin: "https://www.linkedin.com/in/tep-makhon-542ab836b/",
 
-  website: "",
+  website: "https://tepmakhon-portfolio.vercel.app",
 
   phone: "",
 
@@ -70,25 +70,6 @@ export const profile = {
     "PostgreSQL",
     "Prisma",
     "Tailwind CSS",
-  ],
-
-  // ========================
-  // Statistics
-  // ========================
-
-  stats: [
-    {
-      value: 5,
-      label: "Projects",
-    },
-    {
-      value: 5,
-      label: "Certificates",
-    },
-    {
-      value: 15,
-      label: "Technologies",
-    },
   ],
 
   // ========================

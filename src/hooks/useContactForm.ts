@@ -1,39 +1,28 @@
-import { useState } from "react";
-import { toast } from "sonner";
-
+import { useRef, useState } from "react";
 import { sendEmail } from "../services/email";
 import type { ContactForm } from "../types/contact";
-
 export default function useContactForm() {
   const [loading, setLoading] = useState(false);
-
+  const [status, setStatus] = useState("");
+  const busy = useRef(false);
   async function submit(values: ContactForm) {
+    if (busy.current) return false;
+    busy.current = true;
     setLoading(true);
-
+    setStatus("Sending your message…");
     try {
       await sendEmail(values);
-
-      toast.success("Message sent successfully.", {
-        description:
-          "Thank you for reaching out. I'll get back to you as soon as possible.",
-      });
-
+      setStatus("Message sent. Thank you for reaching out.");
       return true;
-    } catch (error) {
-      console.error(error);
-
-      toast.error("Unable to send message.", {
-        description: "Please try again in a few moments.",
-      });
-
+    } catch {
+      setStatus(
+        "Your message could not be sent. Please try again or email tepmakhon199@gmail.com directly.",
+      );
       return false;
     } finally {
+      busy.current = false;
       setLoading(false);
     }
   }
-
-  return {
-    loading,
-    submit,
-  };
+  return { loading, status, submit };
 }

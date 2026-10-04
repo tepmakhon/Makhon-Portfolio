@@ -11,7 +11,7 @@ export const experiences: Experience[] = [
   {
     id: 1,
     year: "2026 - Present",
-    title: "Full Stack Developer",
+    title: "Independent Full-Stack Development",
     company: "Personal Projects",
     description:
       "Designing and developing modern full-stack web applications with React, TypeScript, Express, Prisma, and PostgreSQL. Currently building scalable portfolio projects while focusing on clean architecture, security, and deployment.",
@@ -22,7 +22,6 @@ export const experiences: Experience[] = [
       "Express.js",
       "Prisma",
       "PostgreSQL",
-      "Cloudinary",
       "Git",
     ],
   },
@@ -52,13 +51,7 @@ export const experiences: Experience[] = [
     company: "Personal Project",
     description:
       "Built a responsive developer portfolio showcasing projects, technical skills, certifications, and contact information with a modern UI and optimized performance.",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Cloudinary",
-    ],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
   },
   {
     id: 4,

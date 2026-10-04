@@ -1,72 +1,83 @@
 import { Helmet } from "react-helmet-async";
+import { SITE_URL } from "../../data/site";
+import { profile } from "../../data/profile";
 
 type Props = {
   title: string;
   description: string;
   image?: string;
   url?: string;
+  noindex?: boolean;
+  person?: boolean;
 };
-
-const SITE_URL = "https://tepmakhon.dev";
-
 export default function SEO({
   title,
   description,
-  image = `${SITE_URL}/og-image.png`,
-  url = SITE_URL,
+  image = "/og-image.png",
+  url = "/",
+  noindex = false,
+  person = false,
 }: Props) {
+  const canonical = new URL(url, SITE_URL).href;
+  const preview = new URL(image, SITE_URL).href;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
+        name: "Tep Makhon Portfolio",
+      },
+      ...(person
+        ? [
+            {
+              "@type": "Person",
+              "@id": `${SITE_URL}/#person`,
+              name: profile.fullName,
+              url: `${SITE_URL}/`,
+              sameAs: [profile.github, profile.linkedin],
+              description: profile.bio,
+              affiliation: {
+                "@type": "CollegeOrUniversity",
+                name: profile.university,
+              },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Phnom Penh",
+                addressCountry: "KH",
+              },
+            },
+          ]
+        : []),
+    ],
+  };
   return (
     <Helmet>
-      {/* Basic */}
-
       <title>{title}</title>
-
       <meta name="description" content={description} />
-
-      <meta name="author" content="Tep Makhon" />
-
+      <meta name="author" content={profile.fullName} />
       <meta
-        name="keywords"
-        content="
-          React,
-          TypeScript,
-          Full Stack Developer,
-          Portfolio,
-          Express,
-          PostgreSQL,
-          Prisma,
-          Cambodia,
-          Web Developer
-        "
+        name="robots"
+        content={noindex ? "noindex, follow" : "index, follow"}
       />
-
-      {/* Canonical */}
-
-      <link rel="canonical" href={url} />
-
-      {/* Open Graph */}
-
+      <link rel="canonical" href={canonical} />
       <meta property="og:type" content="website" />
-
       <meta property="og:title" content={title} />
-
       <meta property="og:description" content={description} />
-
-      <meta property="og:image" content={image} />
-
-      <meta property="og:url" content={url} />
-
+      <meta property="og:url" content={canonical} />
+      <meta property="og:image" content={preview} />
+      <meta property="og:image:alt" content="Tep Makhon developer portfolio" />
       <meta property="og:site_name" content="Tep Makhon Portfolio" />
-
-      {/* Twitter */}
-
       <meta name="twitter:card" content="summary_large_image" />
-
       <meta name="twitter:title" content={title} />
-
       <meta name="twitter:description" content={description} />
-
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={preview} />
+      {!noindex && (
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData).replace(/</g, "\\u003c")}
+        </script>
+      )}
     </Helmet>
   );
 }

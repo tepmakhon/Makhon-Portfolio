@@ -1,115 +1,72 @@
-import { FiDownload, FiX } from "react-icons/fi";
-import { useLocation, useNavigate } from "react-router-dom";
-
-import { profile } from "../../data/profile";
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { FiX, FiDownload } from "react-icons/fi";
 import { navigation } from "../../constants/navigation";
-
-type Props = {
+import { profile } from "../../data/profile";
+export default function MobileMenu({
+  open,
+  onClose,
+}: {
   open: boolean;
   onClose: () => void;
-};
-
-export default function MobileMenu({ open, onClose }: Props) {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const handleNavigation = (href: string) => {
-    const id = href.replace("#", "");
-
-    onClose();
-
-    if (location.pathname === "/") {
-      document.getElementById(id)?.scrollIntoView({
-        behavior: "smooth",
-      });
-      return;
+}) {
+  const ref = useRef<HTMLDialogElement>(null);
+  useEffect(() => {
+    const dialog = ref.current;
+    if (open) {
+      dialog?.showModal();
+      const previous = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        dialog?.close();
+        document.body.style.overflow = previous;
+      };
     }
-
-    navigate(`/${href}`);
-  };
-
+    dialog?.close();
+  }, [open]);
   return (
-    <div
-      className={`
-        fixed
-        inset-0
-        z-50
-        bg-[var(--color-surface)]
-        transition-all
-        duration-300
-        ${
-          open
-            ? "translate-x-0 opacity-100"
-            : "translate-x-full opacity-0 pointer-events-none"
-        }
-      `}
+    <dialog
+      id="mobile-menu"
+      ref={ref}
+      onCancel={onClose}
+      aria-labelledby="menu-title"
+      className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none border-0 bg-[var(--color-surface)] p-6 text-[var(--color-text)] backdrop:bg-black/50"
     >
-      {/* Header */}
-
-      <div className="flex items-center justify-between border-b border-[var(--color-border)] p-6">
-        <h2 className="text-xl font-bold text-[var(--color-text)]">Menu</h2>
-
+      <div className="flex items-center justify-between border-b border-[var(--color-border)] pb-5">
+        <h2 id="menu-title" className="text-xl font-semibold">
+          Navigation
+        </h2>
         <button
           onClick={onClose}
-          className="text-[var(--color-text)]"
           aria-label="Close menu"
+          className="rounded-lg p-3"
         >
-          <FiX size={28} />
+          <FiX size={24} />
         </button>
       </div>
-
-      {/* Navigation */}
-
-      <nav className="flex flex-col gap-2 p-6">
+      <nav aria-label="Mobile navigation" className="flex flex-col gap-2 py-6">
         {navigation.map((item) => (
-          <button
+          <Link
             key={item.href}
-            onClick={() => handleNavigation(item.href)}
-            className="
-              rounded-lg
-              border-b
-              border-[var(--color-border)]
-              px-3
-              py-4
-              text-left
-              text-lg
-              text-[var(--color-text)]
-              transition-all
-              duration-200
-              hover:bg-[var(--color-primary)]/10
-              hover:text-[var(--color-primary)]
-            "
+            to={`/${item.href}`}
+            onClick={onClose}
+            className="rounded-lg px-3 py-3 text-lg hover:bg-[var(--color-primary-soft)]"
           >
             {item.label}
-          </button>
+          </Link>
         ))}
-
-          <a
-            href={profile.resume}
-            download
-            className="
-              mt-8
-              flex
-              w-full
-              items-center
-              justify-center
-              gap-3
-              rounded-xl
-              bg-[var(--color-primary)]
-              px-5
-              py-4
-              font-semibold
-              text-white
-              transition-all
-              duration-300
-              hover:opacity-90
-              active:scale-95
-            "
-          >
-            <FiDownload size={20} />
-            Download CV
-          </a>
+        <Link
+          to="/#education"
+          onClick={onClose}
+          className="rounded-lg px-3 py-3 text-lg"
+        >
+          Education
+        </Link>
       </nav>
-    </div>
+      <a className="action-link w-full" href={profile.resume} download>
+        <FiDownload aria-hidden="true" />
+        Download CV
+      </a>
+    </dialog>
   );
 }

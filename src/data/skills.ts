@@ -1,8 +1,5 @@
-export type SkillLevel = "Beginner" | "Intermediate" | "Advanced";
-
 export interface Skill {
   name: string;
-  level: SkillLevel;
 }
 
 export interface SkillCategory {
@@ -14,39 +11,43 @@ export const skillCategories: SkillCategory[] = [
   {
     title: "Frontend",
     skills: [
-      { name: "React", level: "Intermediate" },
-      { name: "TypeScript", level: "Advanced" },
-      { name: "JavaScript", level: "Advanced" },
-      { name: "Tailwind CSS", level: "Intermediate" },
-      { name: "HTML5", level: "Advanced" },
-      { name: "CSS3", level: "Advanced" },
+      { name: "React" },
+      { name: "TypeScript" },
+      { name: "JavaScript" },
+      { name: "Tailwind CSS" },
+      { name: "HTML5" },
+      { name: "CSS3" },
     ],
   },
   {
-    title: "Backend",
+    title: "Backend & APIs",
     skills: [
-      { name: "Node.js", level: "Intermediate" },
-      { name: "Express", level: "Intermediate" },
-      { name: "REST API", level: "Intermediate" },
-      { name: "Prisma", level: "Intermediate" },
+      { name: "Node.js" },
+      { name: "Express" },
+      { name: "REST API" },
+      { name: "Prisma" },
     ],
   },
   {
-    title: "Database",
+    title: "Databases",
+    skills: [{ name: "PostgreSQL" }, { name: "MySQL" }, { name: "SQLite" }],
+  },
+  {
+    title: "Development Tools",
     skills: [
-      { name: "PostgreSQL", level: "Intermediate" },
-      { name: "MySQL", level: "Intermediate" },
-      { name: "SQLite", level: "Intermediate" },
+      { name: "Git" },
+      { name: "GitHub" },
+      { name: "VS Code" },
+      { name: "Postman" },
     ],
   },
   {
-    title: "Tools",
+    title: "Additional Technologies",
     skills: [
-      { name: "Git", level: "Intermediate" },
-      { name: "GitHub", level: "Intermediate" },
-      { name: "VS Code", level: "Intermediate" },
-      { name: "Postman", level: "Intermediate" },
-      { name: "Cloudinary", level: "Intermediate" },
+      { name: "Python" },
+      { name: "Flask" },
+      { name: "Flutter" },
+      { name: "Raspberry Pi" },
     ],
   },
 ];
